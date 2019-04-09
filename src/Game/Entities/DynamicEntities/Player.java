@@ -156,7 +156,6 @@ public class Player extends BaseDynamicEntity {
 			Rectangle brickTopBounds = brick.getTopBounds();
 
 			if(brick instanceof BoundBlock) {
-
 				if(marioBottomBounds.intersects(brickTopBounds)) {
 					marioDies = true;
 				}
@@ -219,7 +218,6 @@ public class Player extends BaseDynamicEntity {
 					mario.setX(brick.getX() + brick.getDimension().width);
 
 				if(brick instanceof BoundBlock) {
-
 					if(marioBounds.intersects(getRightBounds()) || marioBounds.intersects(getLeftBounds())) {
 						marioDies = true;
 					}

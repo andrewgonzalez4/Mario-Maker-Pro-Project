@@ -70,7 +70,7 @@ public class MapBuilder {
 				}else if(currentPixel == koopaTroopa){
 			        BaseDynamicEntity KoopaTroopa = new KoopaTroopa(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
 				    mapInCreation.addEnemy(KoopaTroopa);
-			    }else if(handler.getMario().activatedFlower) {
+//			    }else if(handler.getMario().activatedFlower) {
 					//BaseDynamicEntity FireFlower = new FireFlower(flower,yPos,pixelMultiplier,pixelMultiplier,handler);
 					//
 				}
