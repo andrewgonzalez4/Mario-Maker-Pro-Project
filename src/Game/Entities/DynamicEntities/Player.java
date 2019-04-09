@@ -112,6 +112,7 @@ public class Player extends BaseDynamicEntity {
 		}
 		
 		if(marioDies) {
+			handler.getGame().getMusicHandler().play("marioDies");
 			State.setState(handler.getGame().deathState);
 			handler.getMap().reset();
 		}
@@ -157,6 +158,7 @@ public class Player extends BaseDynamicEntity {
 		}
 
 		if(marioDies) {
+			handler.getGame().getMusicHandler().play("marioDies");
 			State.setState(handler.getGame().deathState);
 			handler.getMap().reset();
 		}
@@ -207,6 +209,7 @@ public class Player extends BaseDynamicEntity {
 		}
 
 		if(marioDies) {
+			handler.getGame().getMusicHandler().play("marioDies");
 			State.setState(handler.getGame().deathState);
 			handler.getMap().reset();
 		}

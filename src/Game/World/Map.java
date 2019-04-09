@@ -16,6 +16,8 @@ import Display.UI.UIListener;
 public class Map {
 
     ArrayList<BaseStaticEntity> blocksOnMap;
+    ArrayList<BaseDynamicEntity> blocksMoveOnMap;
+    
     ArrayList<BaseDynamicEntity> enemiesOnMap;
     Handler handler;
     private double bottomBorder;
@@ -40,6 +42,7 @@ public class Map {
     public void addBlock(BaseStaticEntity block){
         blocksOnMap.add(block);
     }
+    
     public void addEnemy(BaseDynamicEntity entity){
         if(entity instanceof Mario){
             handler.setMario((Mario) entity);
