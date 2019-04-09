@@ -62,6 +62,7 @@ public class MapBuilder {
 					mapInCreation.addEnemy(Goomba);
 				}else if(handler.getMario().activatedFlower) {
 					//BaseDynamicEntity FireFlower = new FireFlower(flower,yPos,pixelMultiplier,pixelMultiplier,handler);
+					//
 				}
 			}
 
