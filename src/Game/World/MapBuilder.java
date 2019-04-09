@@ -4,6 +4,7 @@ import Game.Entities.DynamicEntities.BaseDynamicEntity;
 import Game.Entities.DynamicEntities.Goomba;
 import Game.Entities.DynamicEntities.Mario;
 import Game.Entities.DynamicEntities.Mushroom;
+import Game.Entities.DynamicEntities.FireFlower;
 import Game.Entities.StaticEntities.*;
 import Main.Handler;
 import Resources.Images;
@@ -20,6 +21,7 @@ public class MapBuilder {
 	public static int breakBlock = new Color(0,38,255).getRGB();
 	public static int misteryBlock = new Color(255,216,0).getRGB();
 	public static int mushroom = new Color(178,0,255).getRGB();
+	public static int fireFlower = new Color(214, 108, 51).getRGB();
 	public static int goomba = new Color(167,15,1).getRGB();
 	public static boolean mapDone = false;
 
@@ -47,7 +49,10 @@ public class MapBuilder {
 					mapInCreation.addBlock(MisteryBlock);
 				}else if(currentPixel == mushroom){
 					BaseDynamicEntity Mushroom = new Mushroom(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
-					mapInCreation.addEnemy(Mushroom);
+					mapInCreation.addEnemy(Mushroom);	
+				}else if(currentPixel == fireFlower){
+					BaseDynamicEntity FireFlower = new FireFlower(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
+					mapInCreation.addEnemy(FireFlower);
 				}else if(currentPixel == goomba){
 					BaseDynamicEntity Goomba = new Goomba(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
 					mapInCreation.addEnemy(Goomba);

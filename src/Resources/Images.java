@@ -62,6 +62,7 @@ public class Images {
     public static BufferedImage surfaceBlock;
     public static BufferedImage boundBlock;
     public static BufferedImage mushroom;
+    public static BufferedImage fireflower;
     public static BufferedImage goombaDies;
 
     private SpriteSheet mainmenuSpriteSheet;
@@ -311,6 +312,7 @@ public class Images {
 
             //items
             mushroom = interactableSpriteSheet.crop(112,34,16,16);
+            fireflower = interactableSpriteSheet.crop(93,34,16,16);
 
             //enemy
             goomba[0]=goombaSpriteSheet.crop(119,40,162,162);
