@@ -60,6 +60,9 @@ public class MapBuilder {
 				}else if(currentPixel == goomba){
 					BaseDynamicEntity Goomba = new Goomba(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
 					mapInCreation.addEnemy(Goomba);
+				}else if(handler.getMario().activatedFlower) {
+					//BaseDynamicEntity FireFlower = new FireFlower(flower,yPos,pixelMultiplier,pixelMultiplier,handler);
+					//
 				}
 			}
 

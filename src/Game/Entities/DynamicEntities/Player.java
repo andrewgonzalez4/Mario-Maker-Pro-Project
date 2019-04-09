@@ -19,7 +19,7 @@ public class Player extends BaseDynamicEntity {
 	public String facing = "Left";
 	public boolean moving = false;
 	public Animation playerSmallLeftAnimation,playerSmallRightAnimation,playerBigLeftWalkAnimation,playerBigRightWalkAnimation,playerBigLeftRunAnimation,playerBigRightRunAnimation;
-	public boolean falling = true, jumping = false,isBig=false,running = false,changeDirrection=false;
+	public boolean falling = true, jumping = false,isBig=false,running = false,changeDirrection=false, activatedFlower = false;
 	public double gravityAcc = 0.38;
 	int changeDirectionCounter=0;
 
@@ -176,6 +176,7 @@ public class Player extends BaseDynamicEntity {
 				if(enemy instanceof FlowerBlock) {
 					velY=0;
 					mario.setY(enemy.getY() + enemy.height);
+					activatedFlower = true;
 				}
 
 				else {
@@ -184,6 +185,11 @@ public class Player extends BaseDynamicEntity {
 				}
 
 			}
+		}
+		
+		if(activatedFlower) {
+			System.out.println("Hola");
+			activatedFlower = false;
 		}
 
 		if(marioDies) {

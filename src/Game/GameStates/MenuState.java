@@ -226,7 +226,7 @@ public class MenuState extends State {
 			colorSelected = MapBuilder.fireFlower;
 		}
 		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_9)){
-			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,06549f,0.05882f,0.003921f), new Point(0, 0), "cursor1");
+			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.27450f,0.858827f,0.70196f), new Point(0, 0), "cursor1");
 			display.getCanvas().setCursor(c);
 			colorSelected = MapBuilder.flowerBlock;
 		}
