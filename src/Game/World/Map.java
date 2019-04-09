@@ -3,6 +3,7 @@ package Game.World;
 import Display.UI.UIPointer;
 import Game.Entities.DynamicEntities.*;
 import Game.Entities.StaticEntities.BaseStaticEntity;
+import Game.Entities.StaticEntities.FlowerBlock;
 import Game.Entities.StaticEntities.Wall;
 import Main.Handler;
 import Resources.Images;
@@ -63,7 +64,11 @@ public class Map {
             g2.drawImage(block.sprite,block.x,block.y,block.width,block.height,null);
         }
         for (BaseDynamicEntity entity:enemiesOnMap) {
-            if(entity instanceof Item){
+        	
+        	if(entity instanceof FlowerBlock) {
+        		g2.drawImage(((FlowerBlock)entity).anim.getCurrentFrame(), entity.x, entity.y, entity.width, entity.height, null);
+        	}
+        	else if(entity instanceof Item){
                 if(!((Item)entity).used){
                     g2.drawImage(entity.sprite, entity.x, entity.y, entity.width, entity.height, null);
                 }

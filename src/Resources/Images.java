@@ -112,7 +112,7 @@ public class Images {
         marioBigJumpLeft = new BufferedImage[5];
         marioBigJumpRight = new BufferedImage[5];
         goomba = new BufferedImage[2];
-        flowerBlock = new BufferedImage[4];
+        flowerBlock = new BufferedImage[3];
 
 
 
