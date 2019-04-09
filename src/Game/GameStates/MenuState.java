@@ -337,6 +337,8 @@ public class MenuState extends State {
 		{
 			String path = getClass().getClassLoader().getResource(".").getPath();
 			String path2 = path.substring(0,path.indexOf("/out/"))+"/res/maps/"+name+".png";
+			path2 = path2.replaceAll("%20", " ");
+			
 			f = new File(path2);
 			System.out.println("File saved in: "+path2);
 			ImageIO.write(img, "png", f);

@@ -48,7 +48,10 @@ public class Images {
 
 
     public static BufferedImage[] goomba;
-
+    public static BufferedImage[] KoopaTroopaRight;
+    public static BufferedImage[] KoopaTroopaLeft;
+    public static BufferedImage KoopaTroopaLeftDies;
+    public static BufferedImage KoopaTroopaRightDies;
 
     public static BufferedImage title;
     public static BufferedImage Pause;
@@ -73,12 +76,11 @@ public class Images {
     private SpriteSheet goombaSpriteSheet;
     private SpriteSheet SSpriteSheet;
     private SpriteSheet SAttackSpriteSheet;
+    private SpriteSheet KTRedSheet;
     
     private SpriteSheet gameOverSheet;
     public static BufferedImage gameOver;
-
     
-
 
     public Images() {
 
@@ -107,11 +109,12 @@ public class Images {
         marioBigJumpLeft = new BufferedImage[5];
         marioBigJumpRight = new BufferedImage[5];
         goomba = new BufferedImage[2];
-
-
+        
+        KoopaTroopaRight = new BufferedImage[4];
+        KoopaTroopaLeft = new BufferedImage[4];
+        
 
         try {
-
 
             //spriteSheets
             mainmenuSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/mainmenuSheet.png")));
@@ -123,6 +126,7 @@ public class Images {
             SSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/Sheets.png")));
             SAttackSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/enemySheet2.png")));
             gameOverSheet= new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/gameoverSheet.png")));
+            KTRedSheet= new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/KTRedSheet.png")));
 
 
             //Images
@@ -297,6 +301,7 @@ public class Images {
             enemySmash= SAttackSpriteSheet.crop(9,302,51,41);
             enemyBL= SAttackSpriteSheet.crop(188,184,41,55);
             
+           //game over
             gameOver =  gameOverSheet.crop(5,7,256,224);
 
             //maps
@@ -315,15 +320,25 @@ public class Images {
             fireflower = interactableSpriteSheet.crop(93,34,16,16);
 
             //enemy
-            goomba[0]=goombaSpriteSheet.crop(119,40,162,162);
-            goomba[1]= goombaSpriteSheet.crop(329,40,162,162);
-            goombaDies=goombaSpriteSheet.crop(539,100,162,81);
-
-
+            goomba[0] = goombaSpriteSheet.crop(119,40,162,162);
+            goomba[1] = goombaSpriteSheet.crop(329,40,162,162);
+            goombaDies = goombaSpriteSheet.crop(539,100,162,81);
+            
+            KoopaTroopaRight[0] = KTRedSheet.crop(207,39,22,32);
+            KoopaTroopaRight[1] = KTRedSheet.crop(247,39,21,31);
+            KoopaTroopaRight[2] = KTRedSheet.crop(287,40,21,29);
+            KoopaTroopaRight[3] = KTRedSheet.crop(326,40,23,29);
+            KoopaTroopaRightDies = KTRedSheet.crop(370,37,16,15);
+            
+            KoopaTroopaLeft[0] = KTRedSheet.crop(167,39,22,32);
+            KoopaTroopaLeft[1] = KTRedSheet.crop(128,39,21,31);
+            KoopaTroopaLeft[2] = KTRedSheet.crop(88,40,21,29);
+            KoopaTroopaLeft[3] = KTRedSheet.crop(47,40,23,29);
+            KoopaTroopaLeftDies = KTRedSheet.crop(10,37,16,15);
+            
         }catch (IOException e) {
         e.printStackTrace();
-    }
-
+        }
 
     }
 
@@ -365,7 +380,5 @@ public class Images {
         }
         return newImage;
     }
-
-
 
 }
