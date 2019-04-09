@@ -49,6 +49,10 @@ public class Images {
 
     public static BufferedImage[] goomba;
     public static BufferedImage[] flowerBlock;
+    public static BufferedImage[] KoopaTroopaRight;
+    public static BufferedImage[] KoopaTroopaLeft;
+    public static BufferedImage KoopaTroopaLeftDies;
+    public static BufferedImage KoopaTroopaRightDies;
 
 
     public static BufferedImage title;
