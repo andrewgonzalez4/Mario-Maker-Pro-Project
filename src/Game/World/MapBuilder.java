@@ -49,8 +49,8 @@ public class MapBuilder {
 					BaseStaticEntity MisteryBlock = new MisteryBlock(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
 					mapInCreation.addBlock(MisteryBlock);
 				}else if(currentPixel == flowerBlock){
-					BaseStaticEntity FlowerBlock = new FlowerBlock(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
-					mapInCreation.addBlock(FlowerBlock);
+					BaseDynamicEntity FlowerBlock = new FlowerBlock(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
+					mapInCreation.addEnemy(FlowerBlock);
 				}else if(currentPixel == mushroom){
 					BaseDynamicEntity Mushroom = new Mushroom(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
 					mapInCreation.addEnemy(Mushroom);	
