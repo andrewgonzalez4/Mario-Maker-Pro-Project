@@ -108,7 +108,7 @@ public class Images {
         marioBigJumpLeft = new BufferedImage[5];
         marioBigJumpRight = new BufferedImage[5];
         goomba = new BufferedImage[2];
-        flowerBlock = new BufferedImage[3];
+        flowerBlock = new BufferedImage[4];
 
 
 
@@ -310,8 +310,10 @@ public class Images {
             misteryBlock = interactableSpriteSheet.crop(32,93,16,16);
            
             flowerBlock[0] = interactableSpriteSheet.crop(13, 172, 16, 16);
-            flowerBlock[1] = interactableSpriteSheet.crop(72, 172, 16, 16);
+            flowerBlock[1] = interactableSpriteSheet.crop(33, 172, 16, 16);
             flowerBlock[2] = interactableSpriteSheet.crop(53, 172, 16, 16);
+            flowerBlock[3] = interactableSpriteSheet.crop(72, 172, 16, 16);
+           
             
            
             surfaceBlock = interactableSpriteSheet.crop(112,93,16,16);
