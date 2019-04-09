@@ -85,7 +85,9 @@ public class Player extends BaseDynamicEntity {
 		Player mario = this;
 		ArrayList<BaseStaticEntity> bricks = handler.getMap().getBlocksOnMap();
 		ArrayList<BaseDynamicEntity> enemies =  handler.getMap().getEnemiesOnMap();
+		boolean marioDies = false;
 
+		Rectangle marioTopBounds =mario.getTopBounds();
 		Rectangle marioBottomBounds =getBottomBounds();
 
 		if (!mario.jumping) {
@@ -94,11 +96,24 @@ public class Player extends BaseDynamicEntity {
 
 		for (BaseStaticEntity brick : bricks) {
 			Rectangle brickTopBounds = brick.getTopBounds();
+			Rectangle brickBottomBounds = brick.getBottomBounds();
+			
+			if(brick instanceof BoundBlock) {
+
+				if(marioTopBounds.intersects(brickBottomBounds)) {
+					marioDies = true;
+				}
+			}
 			if (marioBottomBounds.intersects(brickTopBounds)) {
 				mario.setY(brick.getY() - mario.getDimension().height + 1);
 				falling = false;
 				velY=0;
 			}
+		}
+		
+		if(marioDies) {
+			State.setState(handler.getGame().deathState);
+			handler.getMap().reset();
 		}
 
 		for (BaseDynamicEntity enemy : enemies) {
@@ -118,14 +133,32 @@ public class Player extends BaseDynamicEntity {
 	public void checkTopCollisions() {
 		Player mario = this;
 		ArrayList<BaseStaticEntity> bricks = handler.getMap().getBlocksOnMap();
+		boolean marioDies = false;
 
 		Rectangle marioTopBounds = mario.getTopBounds();
+		Rectangle marioBottomBounds = mario.getBottomBounds();
 		for (BaseStaticEntity brick : bricks) {
 			Rectangle brickBottomBounds = brick.getBottomBounds();
+			Rectangle brickTopBounds = brick.getTopBounds();
+
+			if(brick instanceof BoundBlock) {
+
+				if(marioBottomBounds.intersects(brickTopBounds)) {
+					marioDies = true;
+				}
+			}
+
+
 			if (marioTopBounds.intersects(brickBottomBounds)) {
 				velY=0;
 				mario.setY(brick.getY() + brick.height);
 			}
+
+		}
+
+		if(marioDies) {
+			State.setState(handler.getGame().deathState);
+			handler.getMap().reset();
 		}
 	}
 
@@ -150,7 +183,7 @@ public class Player extends BaseDynamicEntity {
 
 				if(brick instanceof BoundBlock) {
 
-					if(marioBounds.intersects(getRightBounds()) || marioBounds.intersects(getLeftBounds()) || marioBounds.intersects(getTopBounds()) || marioBounds.intersects(getBottomBounds())) {
+					if(marioBounds.intersects(getRightBounds()) || marioBounds.intersects(getLeftBounds())) {
 						marioDies = true;
 					}
 				}
@@ -163,13 +196,13 @@ public class Player extends BaseDynamicEntity {
 			Rectangle enemyBounds = !toRight ? enemy.getRightBounds() : enemy.getLeftBounds();
 			if (marioBounds.intersects(enemyBounds)) {
 				if(enemy instanceof FireFlower) {
-					
+
 				}
 				else {
 					marioDies = true;
 					break;
 				}
-				
+
 			}
 		}
 
