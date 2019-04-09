@@ -12,20 +12,20 @@ public class KoopaTroopa extends BaseDynamicEntity {
 	public Animation right;
 	
 	public KoopaTroopa(int x, int y, int width, int height, Handler handler) {
-		super(x, y, width, height, handler, Images.KoopaTroopaLeft[0]);
-		left = new Animation(160,Images.KoopaTroopaLeft);
+		super(x, y, width, height, handler, Images.KoopaTroopaRight[0]);
 		right = new Animation(160,Images.KoopaTroopaRight);
+		left = new Animation(160,Images.KoopaTroopaLeft);
 	}
 
 	@Override
 	public void tick(){
 		if(!ded && dedCounter==0) {
 			super.tick();
-			if(direction.equals("Left")){
-				left.tick();
+			if(direction.equals("Right")){
+				right.tick();
 			}
 			else {
-				right.tick();
+				left.tick();
 			}
 			if (falling) {
 				y = (int) (y + velY);
@@ -47,13 +47,12 @@ public class KoopaTroopa extends BaseDynamicEntity {
 
 	@Override
 	public void kill() {
-		if(direction.equals("Left")){
-			sprite = Images.KoopaTroopaLeftDies;
+		if(direction.equals("Right")){
+			sprite = Images.KoopaTroopaRightDies;
 		}
 		else {
-			sprite = Images.KoopaTroopaRightDies;       
+			sprite = Images.KoopaTroopaLeftDies;       
 		}
-
 		ded=true;
 	}
 }
