@@ -72,6 +72,12 @@ public class Images {
     private SpriteSheet goombaSpriteSheet;
     private SpriteSheet SSpriteSheet;
     private SpriteSheet SAttackSpriteSheet;
+    
+    private SpriteSheet gameOverSheet;
+    public static BufferedImage gameOver;
+
+    
+
 
     public Images() {
 
@@ -115,6 +121,7 @@ public class Images {
             goombaSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/goombaSprite.png")));
             SSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/Sheets.png")));
             SAttackSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/enemySheet2.png")));
+            gameOverSheet= new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/gameoverSheet.png")));
 
 
             //Images
@@ -288,6 +295,8 @@ public class Images {
             enemyHT= SAttackSpriteSheet.crop(178,357,52,62);
             enemySmash= SAttackSpriteSheet.crop(9,302,51,41);
             enemyBL= SAttackSpriteSheet.crop(188,184,41,55);
+            
+            gameOver =  gameOverSheet.crop(5,7,256,224);
 
             //maps
             testMap = ImageIO.read(getClass().getResourceAsStream("/maps/testmap1.png"));

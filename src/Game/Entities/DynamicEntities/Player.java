@@ -2,6 +2,7 @@ package Game.Entities.DynamicEntities;
 
 import Game.Entities.EntityBase;
 import Game.Entities.StaticEntities.BaseStaticEntity;
+import Game.GameStates.State;
 import Main.Handler;
 import Resources.Animation;
 
@@ -157,6 +158,7 @@ public class Player extends BaseDynamicEntity {
         }
 
         if(marioDies) {
+            State.setState(handler.getGame().deathState);
             handler.getMap().reset();
         }
     }
