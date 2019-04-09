@@ -1,16 +1,14 @@
 package Resources;
 
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
 import javax.imageio.ImageIO;
-import javax.swing.*;
 
 import Game.Entities.StaticEntities.BreakBlock;
 import Game.World.Map;
-import Game.World.MapBuilder;
 import Main.Handler;
-
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 /**
  * Created by AlexVR on 7/1/2018.
@@ -78,12 +76,11 @@ public class Images {
     private SpriteSheet goombaSpriteSheet;
     private SpriteSheet SSpriteSheet;
     private SpriteSheet SAttackSpriteSheet;
+    private SpriteSheet KTRedSheet;
+
     
     private SpriteSheet gameOverSheet;
     public static BufferedImage gameOver;
-
-    
-
 
     public Images() {
 
@@ -104,7 +101,6 @@ public class Images {
         enemyGB2 = new BufferedImage[2];
         enemyGB3 = new BufferedImage[3];
 
-
         marioBigWalkLeft = new BufferedImage[2];
         marioBigWalkRight = new BufferedImage[2];
         marioBigRunLeft = new BufferedImage[2];
@@ -114,7 +110,8 @@ public class Images {
         goomba = new BufferedImage[2];
         flowerBlock = new BufferedImage[4];
 
-
+        KoopaTroopaRight = new BufferedImage[4];
+        KoopaTroopaLeft = new BufferedImage[4];
 
         try {
 
@@ -129,8 +126,8 @@ public class Images {
             SSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/Sheets.png")));
             SAttackSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/enemySheet2.png")));
             gameOverSheet= new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/gameoverSheet.png")));
-
-
+            KTRedSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/KTRedSheet.png")));
+          
             //Images
             title = mainmenuSpriteSheet.crop(16,16,256,224);
             Pause = ImageIO.read(getClass().getResourceAsStream("/Sheets/Pause.png"));
@@ -318,7 +315,6 @@ public class Images {
             flowerBlock[2] = interactableSpriteSheet.crop(53, 172, 16, 16);
             flowerBlock[3] = interactableSpriteSheet.crop(72, 172, 16, 16);
            
-            
            
             surfaceBlock = interactableSpriteSheet.crop(112,93,16,16);
             //breakBlock = blockSpriteSheet.crop(272,112,16,16);
@@ -333,6 +329,18 @@ public class Images {
             goomba[1]= goombaSpriteSheet.crop(329,40,162,162);
             goombaDies=goombaSpriteSheet.crop(539,100,162,81);
 
+            KoopaTroopaRight[0] = KTRedSheet.crop(207,39,22,32);
+            KoopaTroopaRight[1] = KTRedSheet.crop(247,39,21,31);
+            KoopaTroopaRight[2] = KTRedSheet.crop(287,40,21,29);
+            KoopaTroopaRight[3] = KTRedSheet.crop(326,40,23,29);
+            KoopaTroopaRightDies = KTRedSheet.crop(370,37,16,15);
+            
+            KoopaTroopaLeft[0] = KTRedSheet.crop(167,39,22,32);
+            KoopaTroopaLeft[1] = KTRedSheet.crop(128,39,21,31);
+            KoopaTroopaLeft[2] = KTRedSheet.crop(88,40,21,29);
+            KoopaTroopaLeft[3] = KTRedSheet.crop(47,40,23,29);
+            KoopaTroopaLeftDies = KTRedSheet.crop(10,37,16,15);
+            
 
         }catch (IOException e) {
         e.printStackTrace();
