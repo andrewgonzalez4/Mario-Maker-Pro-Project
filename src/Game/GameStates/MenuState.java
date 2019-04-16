@@ -216,12 +216,12 @@ public class MenuState extends State {
 			colorSelected = MapBuilder.mushroom;
 		}
 		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_7)){
-			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,06549f,0.05882f,0.003921f), new Point(0, 0), "cursor1");
+			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.6549f,0.05882f,0.003921f), new Point(0, 0), "cursor1");
 			display.getCanvas().setCursor(c);
 			colorSelected = MapBuilder.goomba;
 		}
 		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_8)){
-			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,06549f,0.05882f,0.003921f), new Point(0, 0), "cursor1");
+			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.8392f,0.4235f,0.2f), new Point(0, 0), "cursor1");
 			display.getCanvas().setCursor(c);
 			colorSelected = MapBuilder.fireFlower;
 		}
