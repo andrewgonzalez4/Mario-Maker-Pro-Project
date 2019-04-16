@@ -31,6 +31,18 @@ public class Images {
     public static BufferedImage[] marioBigRunRight;
     public static BufferedImage[] marioBigJumpLeft;//also store ide sprites like looking up or down and left<->right transition
     public static BufferedImage[] marioBigJumpRight;
+      
+    public static BufferedImage[] luigiSmallWalkLeft;
+    public static BufferedImage[] luigiSmallWalkRight;
+    public static BufferedImage[] luigiSmallJumpLeft;
+    public static BufferedImage[] luigiSmallJumpRight;
+
+    public static BufferedImage[] luigiBigWalkLeft;
+    public static BufferedImage[] luigiBigWalkRight;
+    public static BufferedImage[] luigiBigRunLeft;
+    public static BufferedImage[] luigiBigRunRight;
+    public static BufferedImage[] luigiBigJumpLeft;
+    public static BufferedImage[] luigiBigJumpRight;
     
     public static BufferedImage[] item;
     public static BufferedImage[] enemy;
@@ -44,14 +56,12 @@ public class Images {
     public static BufferedImage enemyHT;
     public static BufferedImage enemySmash;
 
-
     public static BufferedImage[] goomba;
     public static BufferedImage[] flowerBlock;
     public static BufferedImage[] KoopaTroopaRight;
     public static BufferedImage[] KoopaTroopaLeft;
     public static BufferedImage KoopaTroopaLeftDies;
     public static BufferedImage KoopaTroopaRightDies;
-
 
     public static BufferedImage title;
     public static BufferedImage Pause;
@@ -72,13 +82,14 @@ public class Images {
     private SpriteSheet backgroundSpriteSheet;
     private SpriteSheet interactableSpriteSheet;
     private SpriteSheet playerSpriteSheet;
+    private SpriteSheet player2SpriteSheet;
+
     private SpriteSheet blockSpriteSheet;
     private SpriteSheet goombaSpriteSheet;
     private SpriteSheet SSpriteSheet;
     private SpriteSheet SAttackSpriteSheet;
     private SpriteSheet KTRedSheet;
 
-    
     private SpriteSheet gameOverSheet;
     public static BufferedImage gameOver;
 
@@ -93,6 +104,12 @@ public class Images {
         marioSmallWalkRight = new BufferedImage[2];
         marioSmallJumpLeft = new BufferedImage[4];
         marioSmallJumpRight = new BufferedImage[4];
+        
+        luigiSmallWalkLeft = new BufferedImage[2];
+        luigiSmallWalkRight = new BufferedImage[2];
+        luigiSmallJumpLeft = new BufferedImage[4];
+        luigiSmallJumpRight = new BufferedImage[4];
+        
         item = new BufferedImage[19];
         enemy = new BufferedImage[9];
         hitWall = new BufferedImage[44];
@@ -107,6 +124,14 @@ public class Images {
         marioBigRunRight = new BufferedImage[2];
         marioBigJumpLeft = new BufferedImage[5];
         marioBigJumpRight = new BufferedImage[5];
+        
+        luigiBigWalkLeft = new BufferedImage[2];
+        luigiBigWalkRight = new BufferedImage[2];
+        luigiBigRunLeft = new BufferedImage[2];
+        luigiBigRunRight = new BufferedImage[2];
+        luigiBigJumpLeft = new BufferedImage[5];
+        luigiBigJumpRight = new BufferedImage[5];
+        
         goomba = new BufferedImage[2];
         flowerBlock = new BufferedImage[4];
 
@@ -115,12 +140,12 @@ public class Images {
 
         try {
 
-
             //spriteSheets
             mainmenuSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/mainmenuSheet.png")));
             backgroundSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/backgroundSheet.png")));
             interactableSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/interactablesSheet.png")));
             playerSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/marioSNESSheet.png")));
+            player2SpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/luigiSNESSheet.png")));
             blockSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/blocksSheet.png")));
             goombaSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/goombaSprite.png")));
             SSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/Sheets.png")));
@@ -196,6 +221,51 @@ public class Images {
             marioBigJumpRight[2] = playerSpriteSheet.crop(248,196,15,27);//up
             marioBigJumpRight[3] = playerSpriteSheet.crop(287,122,16,15);//down
             marioBigJumpRight[4] = playerSpriteSheet.crop(368,115,16,29);//Change
+            
+            
+            //Small 
+            luigiSmallWalkLeft[0] = player2SpriteSheet.crop(199,0,14,22);
+            luigiSmallWalkLeft[1] = player2SpriteSheet.crop(169,0,15,21);
+
+            luigiSmallWalkRight[0] = player2SpriteSheet.crop(235,0,14,22);
+            luigiSmallWalkRight[1] = player2SpriteSheet.crop(264,0,15,21);
+
+            luigiSmallJumpLeft[0] = player2SpriteSheet.crop(199,30,15,21);
+            luigiSmallJumpLeft[1] = player2SpriteSheet.crop(168,30,16,22);
+            luigiSmallJumpLeft[2] = player2SpriteSheet.crop(85,30,15,22);//up
+            luigiSmallJumpLeft[3] = player2SpriteSheet.crop(112,34,15,14);//down
+
+            luigiSmallJumpRight[0] = player2SpriteSheet.crop(234,30,15,21);
+            luigiSmallJumpRight[1] = player2SpriteSheet.crop(264,30,16,22);
+            luigiSmallJumpRight[2] = player2SpriteSheet.crop(348,30,15,22);//up
+            luigiSmallJumpRight[3] = player2SpriteSheet.crop(321,34,15,14);//down
+
+            // Big
+            // Trabajar con sprite sheet, coordenadas y lo demas para implementarlo.
+            luigiBigWalkLeft[0] = player2SpriteSheet.crop(199,116,15,30);
+            luigiBigWalkLeft[1] = player2SpriteSheet.crop(168,116,16,30);
+
+            luigiBigWalkRight[0] = player2SpriteSheet.crop(234,116,15,30);
+            luigiBigWalkRight[1] = player2SpriteSheet.crop(264,116,16,30);
+
+            luigiBigRunLeft[0] = player2SpriteSheet.crop(199,116,15,30);
+            luigiBigRunLeft[1] = player2SpriteSheet.crop(138,116,16,29);
+
+            luigiBigRunRight[0] = player2SpriteSheet.crop(234,116,15,30);
+            luigiBigRunRight[1] = player2SpriteSheet.crop(294,116,16,29);
+
+            luigiBigJumpLeft[0] = player2SpriteSheet.crop(198,156,16,29);
+            luigiBigJumpLeft[1] = player2SpriteSheet.crop(168,157,16,28);
+            luigiBigJumpLeft[2] = player2SpriteSheet.crop(85,156,15,29);//up
+            luigiBigJumpLeft[3] = player2SpriteSheet.crop(111,163,16,15);//down
+            luigiBigJumpLeft[4] = player2SpriteSheet.crop(378,155,16,31);//change
+
+            luigiBigJumpRight[0] = player2SpriteSheet.crop(234,156,16,29);
+            luigiBigJumpRight[1] = player2SpriteSheet.crop(264,157,16,28);
+            luigiBigJumpRight[2] = player2SpriteSheet.crop(348,156,15,29);//up
+            luigiBigJumpRight[3] = player2SpriteSheet.crop(321,163,16,15);//down
+            luigiBigJumpRight[4] = player2SpriteSheet.crop(54,155,16,31);//Change
+            
             
             item[0] =  ImageIO.read(getClass().getResourceAsStream("/Sheets/item/SL1.png"));
             item[1] =  ImageIO.read(getClass().getResourceAsStream("/Sheets/item/SL2.png"));
@@ -289,7 +359,7 @@ public class Images {
 
             enemyGB2[0] = SAttackSpriteSheet.crop(205,250,34,41);
             enemyGB2[1] = SAttackSpriteSheet.crop(252,251,45,44);
-
+            
 
             enemyGB3[0] = enemyGB1[2];
             enemyGB3[1] = enemyGB1[1];
@@ -314,7 +384,6 @@ public class Images {
             flowerBlock[1] = interactableSpriteSheet.crop(33, 172, 16, 16);
             flowerBlock[2] = interactableSpriteSheet.crop(53, 172, 16, 16);
             flowerBlock[3] = interactableSpriteSheet.crop(72, 172, 16, 16);
-           
            
             surfaceBlock = interactableSpriteSheet.crop(112,93,16,16);
             //breakBlock = blockSpriteSheet.crop(272,112,16,16);
