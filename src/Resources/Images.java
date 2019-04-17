@@ -15,7 +15,6 @@ import Main.Handler;
  */
 public class Images {
 
-
     public static BufferedImage[] butstart;
     public static BufferedImage[] backgrounds;
     public static BufferedImage[] backgrounds2;
@@ -178,8 +177,6 @@ public class Images {
             backgrounds2[4] = ImageIO.read(getClass().getResourceAsStream("/Sheets/Snow1Background.png"));
             backgrounds2[5] = ImageIO.read(getClass().getResourceAsStream("/Sheets/Snow2Background.png"));
 
-
-            //player sprites
             //Small
             marioSmallWalkLeft[0] = playerSpriteSheet.crop(169,0,14,20);
             marioSmallWalkLeft[1] = playerSpriteSheet.crop(49,0,15,19);
@@ -241,7 +238,6 @@ public class Images {
             luigiSmallJumpRight[3] = player2SpriteSheet.crop(321,34,15,14);//down
 
             // Big
-            // Trabajar con sprite sheet, coordenadas y lo demas para implementarlo.
             luigiBigWalkLeft[0] = player2SpriteSheet.crop(199,116,15,30);
             luigiBigWalkLeft[1] = player2SpriteSheet.crop(168,116,16,30);
 

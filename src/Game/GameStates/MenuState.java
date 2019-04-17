@@ -36,7 +36,6 @@ public class MenuState extends State {
 	private int[] str={83,117,98,32,116,111,32,80,101,119,100,115};
 	private String str2="";
 
-
 	private BufferStrategy bs;
 	private Graphics g;
 	private UIAnimationButton but;
@@ -235,7 +234,11 @@ public class MenuState extends State {
 			display.getCanvas().setCursor(c);
 			colorSelected = MapBuilder.koopaTroopa;
 		}
-
+		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
+			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.22352f,0.60784f,0.28627f), new Point(0, 0), "cursor1");
+			display.getCanvas().setCursor(c);
+			colorSelected = MapBuilder.luigi;
+		}
 
 		if(mouseManager.isLeftPressed() && !clicked){
 			int posX =mouseManager.getMouseX()/GridPixelsize;
@@ -271,9 +274,10 @@ public class MenuState extends State {
 					"5 -> Bounds Block (Black)\n" +
 					"6 -> Mushroom (Purple)\n" +
 					"7 -> Goomba (Brown)\n" + 
-					"8-> Fire Flower (Bright Orange)\n" + 
-					"9-> Fire Flower Block (Mint Green)\n" +
-			        "Q-> Koopa Troopa (Pink)\n");
+					"8 -> Fire Flower (Bright Orange)\n" + 
+					"9 -> Fire Flower Block (Mint Green)\n" +
+			        "Q -> Koopa Troopa (Pink)\n"+
+					"- -> Luigi (Green)\n");
 		}
 	}
 	public UIAnimationButton getBut() {

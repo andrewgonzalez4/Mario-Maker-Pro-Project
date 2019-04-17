@@ -136,9 +136,6 @@ public class Player extends BaseDynamicEntity {
 				velY=0;
 
 			}
-
-		
-
 		}
 	}
 

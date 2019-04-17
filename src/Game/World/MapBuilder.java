@@ -7,6 +7,7 @@ import Game.Entities.DynamicEntities.BaseDynamicEntity;
 import Game.Entities.DynamicEntities.FireFlower;
 import Game.Entities.DynamicEntities.Goomba;
 import Game.Entities.DynamicEntities.KoopaTroopa;
+import Game.Entities.DynamicEntities.Luigi;
 import Game.Entities.DynamicEntities.Mario;
 import Game.Entities.DynamicEntities.Mushroom;
 import Game.Entities.StaticEntities.BaseStaticEntity;
@@ -31,6 +32,7 @@ public class MapBuilder {
 	public static int fireFlower = new Color(214, 108, 51).getRGB();
 	public static int goomba = new Color(167,15,1).getRGB();
 	public static int koopaTroopa = new Color(221, 88, 135).getRGB();
+	public static int luigi = new Color(57, 155, 73).getRGB();
 	public static boolean mapDone = false;
 
 	public static Map createMap(BufferedImage mapImage, Handler handler){
@@ -68,12 +70,15 @@ public class MapBuilder {
 					BaseDynamicEntity Goomba = new Goomba(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
 					mapInCreation.addEnemy(Goomba);
 				}else if(currentPixel == koopaTroopa){
-			        BaseDynamicEntity KoopaTroopa = new KoopaTroopa(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
-				    mapInCreation.addEnemy(KoopaTroopa);
+					BaseDynamicEntity KoopaTroopa = new KoopaTroopa(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
+					mapInCreation.addEnemy(KoopaTroopa);
+				}else if(currentPixel == luigi){
+					BaseDynamicEntity Luigi = new Luigi(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
+					mapInCreation.addEnemy(Luigi);
+				}
 //			    }else if(handler.getMario().activatedFlower) {
 					//BaseDynamicEntity FireFlower = new FireFlower(flower,yPos,pixelMultiplier,pixelMultiplier,handler);
 					//
-				}
 			}
 
 		}
