@@ -153,7 +153,7 @@ public class MenuState extends State {
 							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 50, (handler.getHeight() / 2) + (handler.getHeight() / 10) - (85), 128, 64, "Race Map", () -> {
 								if(!handler.isInMap()) {
 									mode = "Menu";
-									handler.setMap(MapBuilder.createMap(Images.testMaptwo, handler));
+									handler.setMap(MapBuilder.createMap(Images.raceMap, handler));
 									State.setState(handler.getGame().gameState);
 								}
 							}, handler,Color.BLACK));
@@ -162,7 +162,7 @@ public class MenuState extends State {
 							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 80, (handler.getHeight() / 2) + (handler.getHeight() / 10), 128, 64, "Challenge Map", () -> {
 								if(!handler.isInMap()) {
 									mode = "Menu";
-									handler.setMap(MapBuilder.createMap(Images.testMaptwo, handler));
+									handler.setMap(MapBuilder.createMap(Images.challengeMap, handler));
 									State.setState(handler.getGame().gameState);
 								}
 							}, handler,Color.BLACK));

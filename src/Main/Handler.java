@@ -1,5 +1,6 @@
 package Main;
 
+import Game.Entities.DynamicEntities.Luigi;
 import Game.Entities.DynamicEntities.Mario;
 import Game.World.Map;
 import Input.Camera;
@@ -24,10 +25,12 @@ public class Handler {
 
     private GameSetUp game;
     private Mario mario;
+    private Luigi luigi;
     private Map map;
     private boolean marioInMap =false;
 
     private Camera camera;
+    private Camera multicamera;
 
 
     public Handler(){
@@ -93,6 +96,14 @@ public class Handler {
 
     public void setCamera(Camera camera) {
         this.camera = camera;
+    }
+    
+    public Camera getMultiCamera() {
+        return multicamera;
+    }
+
+    public void setMultiCamera(Camera camera) {
+        this.multicamera = camera;
     }
     
     public boolean isSinglePlayer() {

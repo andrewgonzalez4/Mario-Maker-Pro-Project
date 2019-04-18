@@ -68,6 +68,9 @@ public class Images {
 
     public static BufferedImage testMap;
     public static BufferedImage testMaptwo;
+    public static BufferedImage raceMap;
+    public static BufferedImage challengeMap;
+    
 
     public static BufferedImage breakBlock;
     public static BufferedImage misteryBlock;
@@ -371,6 +374,8 @@ public class Images {
             //maps
             testMap = ImageIO.read(getClass().getResourceAsStream("/maps/testmap1.png"));
             testMaptwo = ImageIO.read(getClass().getResourceAsStream("/maps/testmap2.png"));
+            raceMap = ImageIO.read(getClass().getResourceAsStream("/maps/racemap.png"));
+            challengeMap = ImageIO.read(getClass().getResourceAsStream("/maps/challengemap.png"));
 
             //blocks
             boundBlock = interactableSpriteSheet.crop(12,73,16,16);
