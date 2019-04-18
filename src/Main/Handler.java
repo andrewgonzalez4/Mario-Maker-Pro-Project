@@ -20,6 +20,7 @@ public class Handler {
     public static final int DEFAULTHEIGHT = gd.getDisplayMode().getHeight();
 
     int width,height;
+    boolean single, multi;
 
     private GameSetUp game;
     private Mario mario;
@@ -93,4 +94,22 @@ public class Handler {
     public void setCamera(Camera camera) {
         this.camera = camera;
     }
+    
+    public boolean isSinglePlayer() {
+    	return single;
+    }
+    
+    public boolean isMultiPlayer() {
+    	return multi;
+    }
+    
+    public void setSinglePlayer(boolean isSingle) {
+    	single = isSingle;
+    }
+    
+    public void setMultiPlayer(boolean isMulti) {
+    	multi = isMulti;
+    }
+    
+    
 }
