@@ -374,8 +374,8 @@ public class Images {
             //maps
             testMap = ImageIO.read(getClass().getResourceAsStream("/maps/testmap1.png"));
             testMaptwo = ImageIO.read(getClass().getResourceAsStream("/maps/testmap2.png"));
-            raceMap = ImageIO.read(getClass().getResourceAsStream("/maps/racemap.png"));
-            challengeMap = ImageIO.read(getClass().getResourceAsStream("/maps/challengemap.png"));
+            raceMap = ImageIO.read(getClass().getResourceAsStream("/maps/testmap1.png"));
+            challengeMap = ImageIO.read(getClass().getResourceAsStream("/maps/testmap1.png"));
 
             //blocks
             boundBlock = interactableSpriteSheet.crop(12,73,16,16);

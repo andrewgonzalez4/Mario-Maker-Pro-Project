@@ -1,6 +1,7 @@
 package Game.GameStates;
 
 
+import Display.DisplayMultiScreen;
 import Display.DisplayScreen;
 import Display.UI.UIStringButton;
 import Game.World.MapBuilder;
@@ -33,6 +34,7 @@ public class MenuState extends State {
 	private String mode= "Menu";
 
 	private DisplayScreen display;
+	private DisplayMultiScreen display2;
 	private int[] str={83,117,98,32,116,111,32,80,101,119,100,115};
 	private String str2="";
 
@@ -185,12 +187,14 @@ public class MenuState extends State {
 
 						if(handler.isMultiPlayer() == true) {
 
+							handler.getGame().display2.getFrame().setVisible(true);
 
 							//New Map
 							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 250, (handler.getHeight() / 2) + (handler.getHeight() / 10) - (85), 128, 64, "New Map", () -> {
 								if(!handler.isInMap()) {
 									mode = "Menu";
 									initNew("New Map Creator", handler);
+									
 								}
 							}, handler,Color.BLACK));
 

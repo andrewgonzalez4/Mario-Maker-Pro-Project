@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
 
+import Display.DisplayMultiScreen;
 import Display.DisplayScreen;
 import Display.UI.UIPointer;
 import Game.Entities.DynamicEntities.Mario;
@@ -29,6 +30,7 @@ import Resources.MusicHandler;
 
 public class GameSetUp implements Runnable {
     public DisplayScreen display;
+    public DisplayMultiScreen display2;
     public String title;
 
     private boolean running = false;
@@ -85,6 +87,16 @@ public class GameSetUp implements Runnable {
         pauseState = new PauseState(handler);
         deathState = new DeathState(handler);
 
+
+        State.setState(menuState);
+        
+        
+        display2 = new DisplayMultiScreen(title, handler.width, handler.height);
+        display2.getFrame().addKeyListener(keyManager);
+        display2.getFrame().addMouseListener(mouseManager);
+        display2.getFrame().addMouseMotionListener(mouseManager);
+        display2.getCanvas().addMouseListener(mouseManager);
+        display2.getCanvas().addMouseMotionListener(mouseManager);
 
         State.setState(menuState);
     }

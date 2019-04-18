@@ -35,7 +35,7 @@ public class DisplayMultiScreen {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frame.setVisible(false);
         frame.setBackground(Color.black);
 
         try {
