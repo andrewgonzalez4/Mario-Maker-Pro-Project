@@ -190,7 +190,7 @@ public class GameSetUp implements Runnable {
         if (marioVelocityY > 0 && mario.getY() - 2*(handler.getHeight()/3) > handler.getCamera().getY()) {
             shiftAmountY = marioVelocityY;
         }
-        if (marioVelocityX < 0 && mario.getY() +  2*(handler.getHeight()/3) < handler.getCamera().getY()+handler.height) {
+        if (marioVelocityY > 0 && mario.getY() +  2*(handler.getHeight()/3) < handler.getCamera().getY()+handler.height) {
             shiftAmountY = -marioVelocityY;
         }
         handler.getCamera().moveCam(shiftAmount,shiftAmountY);
@@ -214,7 +214,7 @@ public class GameSetUp implements Runnable {
           if (luigiVelocityY > 0 && luigi.getY() - 2*(handler.getHeight()/3) > handler.getMultiCamera().getY()) {
               shiftAmountY = luigiVelocityY;
           }
-          if (luigiVelocityX < 0 && luigi.getY() +  2*(handler.getHeight()/3) < handler.getMultiCamera().getY()+handler.height) {
+          if (luigiVelocityX > 0 && luigi.getY() +  2*(handler.getHeight()/3) < handler.getMultiCamera().getY()+handler.height) {
               shiftAmountY = -luigiVelocityY;
           }
           handler.getMultiCamera().moveCam(shiftAmount,shiftAmountY);
