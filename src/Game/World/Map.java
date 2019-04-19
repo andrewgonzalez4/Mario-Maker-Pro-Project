@@ -11,6 +11,7 @@ import Game.Entities.DynamicEntities.BaseDynamicEntity;
 import Game.Entities.DynamicEntities.Goomba;
 import Game.Entities.DynamicEntities.Item;
 import Game.Entities.DynamicEntities.KoopaTroopa;
+import Game.Entities.DynamicEntities.Luigi;
 import Game.Entities.DynamicEntities.Mario;
 import Game.Entities.StaticEntities.BaseStaticEntity;
 import Game.Entities.StaticEntities.FlowerBlock;
@@ -54,7 +55,10 @@ public class Map {
 			handler.getCamera().setX(handler.getMario().x- (MapBuilder.pixelMultiplier*6));
 			handler.getCamera().setY(handler.getMario().y - (MapBuilder.pixelMultiplier*10));
 			bottomBorder=handler.getHeight()+handler.getMario().y;
-		}else {
+		}
+		else if(entity instanceof Luigi){
+			handler.setLuigi((Luigi) entity);
+	    }else {
 			enemiesOnMap.add(entity);
 		}
 	}
@@ -95,6 +99,7 @@ public class Map {
 			}
 		}
 		handler.getMario().drawMario(g2);
+		handler.getLuigi().drawLuigi(g2);
 		if(this.listener != null && MapBuilder.mapDone) {
 			this.listener.render(g2);
 			this.hand.render(g2);
