@@ -56,15 +56,12 @@ public class Map {
 			handler.getCamera().setY(handler.getMario().y - (MapBuilder.pixelMultiplier*10));
 			bottomBorder=handler.getHeight()+handler.getMario().y;
 		}
-
 		else if(entity instanceof Luigi) {
 			handler.setLuigi((Luigi) entity);
 			handler.getMultiCamera().setX(handler.getLuigi().x- (MapBuilder.pixelMultiplier*6));
 			handler.getMultiCamera().setY(handler.getLuigi().y - (MapBuilder.pixelMultiplier*10));
 			bottomBorder=handler.getHeight()+handler.getLuigi().y;
-		}
-
-		else {
+	    }else { 
 			enemiesOnMap.add(entity);
 		}
 	}

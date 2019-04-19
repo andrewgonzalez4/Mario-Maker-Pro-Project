@@ -457,7 +457,4 @@ public class Images {
         }
         return newImage;
     }
-
-
-
 }

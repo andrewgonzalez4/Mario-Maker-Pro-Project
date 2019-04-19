@@ -19,7 +19,7 @@ public class Player extends BaseDynamicEntity {
 	public String facing = "Left";
 	public boolean moving = false;
 	public Animation playerSmallLeftAnimation,playerSmallRightAnimation,playerBigLeftWalkAnimation,playerBigRightWalkAnimation,playerBigLeftRunAnimation,playerBigRightRunAnimation;
-	public boolean falling = true, jumping = false,isBig=false,running = false,changeDirrection=false, activatedFlower = false;
+	public boolean falling = true, jumping = false,isBig=false,running = false,changeDirrection=false, activatedFlower = false, marioDies = false;
 	public double gravityAcc = 0.38;
 	int changeDirectionCounter=0;
 
@@ -48,6 +48,7 @@ public class Player extends BaseDynamicEntity {
 		checkMarioHorizontalCollision();
 		checkTopCollisions();
 		checkItemCollision();
+		
 		if(!isBig) {
 			if (facing.equals("Left") && moving) {
 				playerSmallLeftAnimation.tick();
@@ -86,7 +87,6 @@ public class Player extends BaseDynamicEntity {
 		Player mario = this;
 		ArrayList<BaseStaticEntity> bricks = handler.getMap().getBlocksOnMap();
 		ArrayList<BaseDynamicEntity> enemies =  handler.getMap().getEnemiesOnMap();
-		boolean marioDies = false;
 
 		Rectangle marioTopBounds =mario.getTopBounds();
 		Rectangle marioBottomBounds =getBottomBounds();
@@ -100,7 +100,6 @@ public class Player extends BaseDynamicEntity {
 			Rectangle brickBottomBounds = brick.getBottomBounds();
 
 			if(brick instanceof BoundBlock) {
-
 				if(marioTopBounds.intersects(brickBottomBounds)) {
 					marioDies = true;
 				}
@@ -126,8 +125,7 @@ public class Player extends BaseDynamicEntity {
 				falling = false;
 				velY=0;
 			}
-
-			else if (marioBottomBounds.intersects(enemyTopBounds) && !(enemy instanceof Item)) {
+			else if (marioBottomBounds.intersects(enemyTopBounds) && !(enemy instanceof Item) && !(enemy instanceof Mario) && !(enemy instanceof Luigi)) {
 				if(!enemy.ded) {
 					handler.getGame().getMusicHandler().playStomp();
 				}
@@ -144,7 +142,6 @@ public class Player extends BaseDynamicEntity {
 		Player mario = this;
 		ArrayList<BaseStaticEntity> bricks = handler.getMap().getBlocksOnMap();
 		ArrayList<BaseDynamicEntity> enemies = handler.getMap().getEnemiesOnMap();
-		boolean marioDies = false;
 
 		Rectangle marioTopBounds = mario.getTopBounds();
 		Rectangle marioBottomBounds = mario.getBottomBounds();
@@ -157,29 +154,23 @@ public class Player extends BaseDynamicEntity {
 					marioDies = true;
 				}
 			}
-
-
 			if (marioTopBounds.intersects(brickBottomBounds)) {
 				velY=0;
 				mario.setY(brick.getY() + brick.height);
 			}
-
 		}
 
-
 		for(BaseDynamicEntity enemy : enemies){
-			if (marioTopBounds.intersects(enemy.getBottomBounds())) {
+			if (marioTopBounds.intersects(enemy.getBottomBounds()) && !(enemy instanceof Mario) && !(enemy instanceof Luigi)) {
 				if(enemy instanceof FlowerBlock) {
 					velY=0;
 					mario.setY(enemy.getY() + enemy.height);
 					activatedFlower = true;
 				}
-
 				else {
 					marioDies = true;
 					break;
 				}
-
 			}
 		}
 
@@ -200,7 +191,6 @@ public class Player extends BaseDynamicEntity {
 		ArrayList<BaseStaticEntity> bricks = handler.getMap().getBlocksOnMap();
 		ArrayList<BaseDynamicEntity> enemies = handler.getMap().getEnemiesOnMap();
 
-		boolean marioDies = false;
 		boolean toRight = moving && facing.equals("Right");
 
 		Rectangle marioBounds = toRight ? mario.getRightBounds() : mario.getLeftBounds();
@@ -220,13 +210,11 @@ public class Player extends BaseDynamicEntity {
 					}
 				}
 			}
-
-
 		}
 
 		for(BaseDynamicEntity enemy : enemies){
 			Rectangle enemyBounds = !toRight ? enemy.getRightBounds() : enemy.getLeftBounds();
-			if (marioBounds.intersects(enemyBounds)) {
+			if (marioBounds.intersects(enemyBounds) && !(enemy instanceof Mario) && !(enemy instanceof Luigi)) {
 				velX=0;
 
 				if(enemy instanceof FireFlower) {
