@@ -37,6 +37,7 @@ public class DisplayMultiScreen {
         frame.setLocationRelativeTo(null);
         frame.setVisible(false);
         frame.setBackground(Color.black);
+        frame.setLocation(660 + 80, 125);
 
         try {
             frame.setIconImage(ImageIO.read(new File("res/Sheets/item/SL1.png")));

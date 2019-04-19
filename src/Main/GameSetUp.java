@@ -101,13 +101,6 @@ public class GameSetUp implements Runnable {
         display2.getFrame().addMouseMotionListener(mouseManager);
         display2.getCanvas().addMouseListener(mouseManager);
         display2.getCanvas().addMouseMotionListener(mouseManager);
-        
-        gameState = new GameState(handler);
-        menuState = new MenuState(handler);
-        pauseState = new PauseState(handler);
-        deathState = new DeathState(handler);
-
-        State.setState(menuState);
     }
 
     public void reStart(){
@@ -268,6 +261,10 @@ public class GameSetUp implements Runnable {
         
         if(handler.isMultiPlayer() == true && State.getState() instanceof  GameState) {
         	handler.getMap().drawMap2(g4);
+        }
+        
+        if(handler.isMultiPlayer() == true && State.getState() instanceof  MenuState) {
+        	g3.clearRect(0, 0, handler.width, handler.height);
         }
 
         //End Drawing!
