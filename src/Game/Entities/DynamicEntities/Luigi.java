@@ -1,11 +1,12 @@
 package Game.Entities.DynamicEntities;
 
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+
 import Main.Handler;
 import Resources.Animation;
 import Resources.Images;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class Luigi extends Player{
 
@@ -32,12 +33,12 @@ public class Luigi extends Player{
 	    if(!grabbed) {
             super.tick();
             if (!this.hit) {
-                if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_SPACE) && !handler.getKeyManager().up && !handler.getKeyManager().down) {
+                if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_SLASH) && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
                     this.jump();
                 }
 
-                if (handler.getKeyManager().right && !handler.getKeyManager().up && !handler.getKeyManager().down) {
-                    if (handler.getKeyManager().runbutt) {
+                if (handler.getKeyManager().right2 && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
+                    if (handler.getKeyManager().runbutt2) {
                         velX = 6;
                         running = true;
                     } else {
@@ -49,8 +50,8 @@ public class Luigi extends Player{
                     }
                     facing = "Right";
                     moving = true;
-                } else if (handler.getKeyManager().left && !handler.getKeyManager().up && !handler.getKeyManager().down) {
-                    if (handler.getKeyManager().runbutt) {
+                } else if (handler.getKeyManager().left2 && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
+                    if (handler.getKeyManager().runbutt2) {
                         velX = -6;
                         running = true;
                     } else {
@@ -89,13 +90,13 @@ public class Luigi extends Player{
 	public void drawLuigi(Graphics2D g2) {
 		if(!grabbed) {
 			if (!isBig) {
-				if (handler.getKeyManager().up) {
+				if (handler.getKeyManager().up2) {
 					if (facing.equals("Left")) {
 						g2.drawImage(Images.luigiSmallJumpLeft[2], x, y, width, height, null);
 					} else {
 						g2.drawImage(Images.luigiSmallJumpRight[2], x, y, width, height, null);
 					}
-				} else if (handler.getKeyManager().down) {
+				} else if (handler.getKeyManager().down2) {
 					if (facing.equals("Left")) {
 						g2.drawImage(Images.luigiSmallJumpLeft[3], x, y, width, height, null);
 					} else {
@@ -130,13 +131,13 @@ public class Luigi extends Player{
 				}
 			} else {
 				if (!changeDirrection) {
-					if (handler.getKeyManager().up) {
+					if (handler.getKeyManager().up2) {
 						if (facing.equals("Left")) {
 							g2.drawImage(Images.luigiBigJumpLeft[4], x, y, width, height, null);
 						} else {
 							g2.drawImage(Images.luigiBigJumpRight[4], x, y, width, height, null);
 						}
-					} else if (handler.getKeyManager().down) {
+					} else if (handler.getKeyManager().down2) {
 						if (facing.equals("Left")) {
 							g2.drawImage(Images.luigiBigJumpLeft[3], x, y, width, height, null);
 						} else {
