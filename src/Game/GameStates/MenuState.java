@@ -39,7 +39,9 @@ public class MenuState extends State {
 	private String str2="";
 
 	private BufferStrategy bs;
+	private BufferStrategy bs2;
 	private Graphics g;
+	private Graphics g3;
 	private UIAnimationButton but;
 	private boolean creatingMap=false;
 	public int GridWidthPixelCount,GridHeightPixelCount,DiplayHeight,DisplayWidth;

@@ -7,6 +7,7 @@ import java.awt.image.BufferStrategy;
 import Display.DisplayMultiScreen;
 import Display.DisplayScreen;
 import Display.UI.UIPointer;
+import Game.Entities.DynamicEntities.Luigi;
 import Game.Entities.DynamicEntities.Mario;
 import Game.Entities.DynamicEntities.Player;
 import Game.Entities.StaticEntities.BreakBlock;
@@ -38,7 +39,9 @@ public class GameSetUp implements Runnable {
     public static boolean threadB;
 
     private BufferStrategy bs;
+    private BufferStrategy bs2;
     private Graphics g;
+    private Graphics g3;
     public UIPointer pointer;
 
     //Input
@@ -68,6 +71,7 @@ public class GameSetUp implements Runnable {
         initialmouseManager = mouseManager;
         musicHandler = new MusicHandler(handler);
         handler.setCamera(new Camera());
+        handler.setMultiCamera(new Camera());
     }
 
     private void init(){
@@ -97,6 +101,11 @@ public class GameSetUp implements Runnable {
         display2.getFrame().addMouseMotionListener(mouseManager);
         display2.getCanvas().addMouseListener(mouseManager);
         display2.getCanvas().addMouseMotionListener(mouseManager);
+        
+        gameState = new GameState(handler);
+        menuState = new MenuState(handler);
+        pauseState = new PauseState(handler);
+        deathState = new DeathState(handler);
 
         State.setState(menuState);
     }
@@ -165,6 +174,10 @@ public class GameSetUp implements Runnable {
         if (handler.isInMap()) {
             updateCamera();
         }
+        
+        if(handler.isLuigiInMap()) {
+        	updateLuigiCamera();
+        }
 
     }
 
@@ -188,28 +201,78 @@ public class GameSetUp implements Runnable {
             shiftAmountY = -marioVelocityY;
         }
         handler.getCamera().moveCam(shiftAmount,shiftAmountY);
+     
+    }
+    
+    
+    private void updateLuigiCamera() {
+    	  Player luigi = handler.getLuigi();
+          double luigiVelocityX = luigi.getVelX();
+          double luigiVelocityY = luigi.getVelY();
+          double shiftAmount = 0;
+          double shiftAmountY = 0;
+         
+          if (luigiVelocityX > 0 && luigi.getX() - 2*(handler.getWidth()/3) > handler.getMultiCamera().getX()) {
+              shiftAmount = luigiVelocityX;
+          }
+          if (luigiVelocityX < 0 && luigi.getX() +  2*(handler.getWidth()/3) < handler.getMultiCamera().getX()+handler.width) {
+              shiftAmount = luigiVelocityX;
+          }
+          if (luigiVelocityY > 0 && luigi.getY() - 2*(handler.getHeight()/3) > handler.getMultiCamera().getY()) {
+              shiftAmountY = luigiVelocityY;
+          }
+          if (luigiVelocityX < 0 && luigi.getY() +  2*(handler.getHeight()/3) < handler.getMultiCamera().getY()+handler.height) {
+              shiftAmountY = -luigiVelocityY;
+          }
+          handler.getMultiCamera().moveCam(shiftAmount,shiftAmountY);
     }
 
     private void render(){
-        bs = display.getCanvas().getBufferStrategy();
+    	 bs = display.getCanvas().getBufferStrategy();
 
-        if(bs == null){
-            display.getCanvas().createBufferStrategy(3);
+         if(bs == null){
+             display.getCanvas().createBufferStrategy(3);
+             return;
+         }
+         g = bs.getDrawGraphics();
+         //Clear Screen
+         g.clearRect(0, 0,  handler.width, handler.height);
+
+         //Draw Here!
+         Graphics2D g2 = (Graphics2D) g.create();
+
+         if(State.getState() != null)
+             State.getState().render(g);
+
+         //End Drawing!
+         bs.show();
+         g.dispose();
+        
+        bs2 = display2.getCanvas().getBufferStrategy();
+        if(bs2 == null){
+            display2.getCanvas().createBufferStrategy(3);
             return;
         }
-        g = bs.getDrawGraphics();
+        
+        g3 = bs2.getDrawGraphics();
+       
         //Clear Screen
-        g.clearRect(0, 0,  handler.width, handler.height);
+        g3.clearRect(0, 0,  handler.width, handler.height);
 
         //Draw Here!
-        Graphics2D g2 = (Graphics2D) g.create();
+        Graphics2D g4 = (Graphics2D) g3.create();
 
+       
         if(State.getState() != null)
-            State.getState().render(g);
+            State.getState().render(g4);
+        
+        if(handler.isMultiPlayer() == true && State.getState() instanceof  GameState) {
+        	handler.getMap().drawMap2(g4);
+        }
 
         //End Drawing!
-        bs.show();
-        g.dispose();
+        bs2.show();
+        g3.dispose();
     }
     public Map getMap() {
     	Map map = new Map(this.handler);
@@ -219,7 +282,9 @@ public class GameSetUp implements Runnable {
     		map.addBlock(new BreakBlock(30*MapBuilder.pixelMultiplier, i*MapBuilder.pixelMultiplier, 48,48, this.handler));
     	}
     	Mario mario = new Mario(24 * MapBuilder.pixelMultiplier, 196 * MapBuilder.pixelMultiplier, 48,48, this.handler);
+    	Luigi luigi = new Luigi(24 * MapBuilder.pixelMultiplier, 196 * MapBuilder.pixelMultiplier, 48,48, this.handler);
     	map.addEnemy(mario);
+    	map.addEnemy(luigi);
         map.addEnemy(pointer);
         threadB=true;
     	return map;

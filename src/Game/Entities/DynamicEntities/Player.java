@@ -120,13 +120,13 @@ public class Player extends BaseDynamicEntity {
 
 		for (BaseDynamicEntity enemy : enemies) {
 			Rectangle enemyTopBounds = enemy.getTopBounds();
-			
+
 			if(marioBottomBounds.intersects(enemyTopBounds) && enemy instanceof FlowerBlock) {
 				mario.setY(enemy.getY() - mario.getDimension().height + 1);
 				falling = false;
 				velY=0;
 			}
-			
+
 			else if (marioBottomBounds.intersects(enemyTopBounds) && !(enemy instanceof Item)) {
 				if(!enemy.ded) {
 					handler.getGame().getMusicHandler().playStomp();
@@ -182,7 +182,7 @@ public class Player extends BaseDynamicEntity {
 
 			}
 		}
-		
+
 		if(activatedFlower) {
 			System.out.println("Hola");
 			activatedFlower = false;
@@ -240,35 +240,49 @@ public class Player extends BaseDynamicEntity {
 						mario.setX(enemy.getX() + enemy.getDimension().width);
 				}
 
+				else if(enemy instanceof Mushroom) {
+
+				}
+
+				else if(isBig == true){
+					if (facing.equals("Left") && moving) {
+						playerSmallLeftAnimation.tick();
+						
+					} else if (facing.equals("Right") && moving) {
+						playerSmallRightAnimation.tick();
+					}
+				}
+
 				else {
 					marioDies = true;
 					break;
 				}
-
 			}
-		}
 
-		if(marioDies) {
-			handler.getGame().getMusicHandler().play("marioDies");
-			State.setState(handler.getGame().deathState);
-			handler.getMap().reset();
 		}
-	}
+	
 
-	public void jump() {
-		if(!jumping && !falling){
-			jumping=true;
-			velY=10;
-			handler.getGame().getMusicHandler().playJump();
-		}
+	if(marioDies) {
+		handler.getGame().getMusicHandler().play("marioDies");
+		State.setState(handler.getGame().deathState);
+		handler.getMap().reset();
 	}
+}
 
-	public double getVelX() {
-		return velX;
+public void jump() {
+	if(!jumping && !falling){
+		jumping=true;
+		velY=10;
+		handler.getGame().getMusicHandler().playJump();
 	}
-	public double getVelY() {
-		return velY;
-	}
+}
+
+public double getVelX() {
+	return velX;
+}
+public double getVelY() {
+	return velY;
+}
 
 
 }
