@@ -50,7 +50,7 @@ public class KeyManager implements KeyListener {
 		right2 = keys[KeyEvent.VK_RIGHT];
 
 		pbutt2 = keys[KeyEvent.VK_ESCAPE];
-		runbutt2 = keys[KeyEvent.VK_CONTROL];
+		runbutt2 = keys[KeyEvent.VK_SLASH];
 
 
 	}

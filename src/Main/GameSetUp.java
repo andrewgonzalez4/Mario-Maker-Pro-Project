@@ -209,9 +209,9 @@ public class GameSetUp implements Runnable {
     	}
     	Mario mario = new Mario(24 * MapBuilder.pixelMultiplier, 196 * MapBuilder.pixelMultiplier, 48,48, this.handler);
     	map.addEnemy(mario);
-    	map.addEnemy(pointer);
-//    	Luigi luigi = new Luigi(24 * MapBuilder.pixelMultiplier, 196 * MapBuilder.pixelMultiplier, 48,48, this.handler);
-//    	map.addEnemy(luigi);
+    	Luigi luigi = new Luigi(24 * MapBuilder.pixelMultiplier, 196 * MapBuilder.pixelMultiplier, 48,48, this.handler);
+    	map.addEnemy(luigi);
+        map.addEnemy(pointer);
         threadB=true;
     	return map;
     }
