@@ -6,6 +6,7 @@ import java.awt.image.BufferStrategy;
 
 import Display.DisplayScreen;
 import Display.UI.UIPointer;
+import Game.Entities.DynamicEntities.Luigi;
 import Game.Entities.DynamicEntities.Mario;
 import Game.Entities.DynamicEntities.Player;
 import Game.Entities.StaticEntities.BreakBlock;
@@ -208,7 +209,9 @@ public class GameSetUp implements Runnable {
     	}
     	Mario mario = new Mario(24 * MapBuilder.pixelMultiplier, 196 * MapBuilder.pixelMultiplier, 48,48, this.handler);
     	map.addEnemy(mario);
-        map.addEnemy(pointer);
+    	map.addEnemy(pointer);
+//    	Luigi luigi = new Luigi(24 * MapBuilder.pixelMultiplier, 196 * MapBuilder.pixelMultiplier, 48,48, this.handler);
+//    	map.addEnemy(luigi);
         threadB=true;
     	return map;
     }

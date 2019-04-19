@@ -1,12 +1,14 @@
 package Main;
 
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+
+import Game.Entities.DynamicEntities.Luigi;
 import Game.Entities.DynamicEntities.Mario;
 import Game.World.Map;
 import Input.Camera;
 import Input.KeyManager;
 import Input.MouseManager;
-
-import java.awt.*;
 
 
 /**
@@ -23,6 +25,7 @@ public class Handler {
 
     private GameSetUp game;
     private Mario mario;
+    private Luigi luigi;
     private Map map;
     private boolean marioInMap =false;
 
@@ -61,13 +64,21 @@ public class Handler {
     }
 
 
-    ///TO CHange
+    ///To Change
     public Mario getMario() {
         return mario;
     }
 
     public void setMario(Mario mario) {
         this.mario = mario;
+    }
+    
+    public Luigi getLuigi() {
+        return luigi;
+    }
+
+    public void setLuigi(Luigi luigi) {
+        this.luigi = luigi;
     }
 
     public Map getMap() {
