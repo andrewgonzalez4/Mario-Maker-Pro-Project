@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 
 import Display.UI.UIPointer;
 import Game.Entities.DynamicEntities.BaseDynamicEntity;
-import Game.Entities.DynamicEntities.Mario;
 import Game.World.MapBuilder;
 import Main.Handler;
 
@@ -33,8 +32,8 @@ public class GameState extends State {
 			if(handler.getKeyManager().skill && !handler.getMario().doubleJump==true){
 				handler.getMario().doubleJump();	
 	       }
-			if (handler.getKeyManager().skill2) {
-
+			if (handler.getKeyManager().skill2 && !handler.getLuigi().floating==true) { 
+				handler.getLuigi().floating();
 			}
 		}
 

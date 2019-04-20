@@ -3,6 +3,8 @@ package Game.Entities.DynamicEntities;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import Main.Handler;
 import Resources.Animation;
@@ -12,6 +14,8 @@ public class Luigi extends Player{
 
 	private boolean hit = false;
 	public boolean grabbed =false;
+	public boolean floating =false;
+
 
 	public Luigi(int x, int y, int width, int height, Handler handler) {
 		super(x, y, width, height, handler, Images.luigiSmallWalkRight[0]
@@ -30,61 +34,61 @@ public class Luigi extends Player{
 
 	@Override
 	public void tick(){
-	    if(!grabbed) {
-            super.tick();
-            if (!this.hit) {
-                if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_CONTROL) && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
-                    this.jump();
-                }
+		if(!grabbed) {
+			super.tick();
+			if (!this.hit) {
+				if (handler.getKeyManager().keyJustPressed(KeyEvent.VK_CONTROL) && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
+					this.jump();
+				}
 
-                if (handler.getKeyManager().right2 && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
-                    if (handler.getKeyManager().runbutt2) {
-                        velX = 6;
-                        running = true;
-                    } else {
-                        velX = 3;
-                        running = false;
-                    }
-                    if (facing.equals("Left")) {
-                        changeDirrection = true;
-                    }
-                    facing = "Right";
-                    moving = true;
-                } else if (handler.getKeyManager().left2 && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
-                    if (handler.getKeyManager().runbutt2) {
-                        velX = -6;
-                        running = true;
-                    } else {
-                        velX = -3;
-                        running = false;
-                    }
-                    if (facing.equals("Right")) {
-                        changeDirrection = true;
-                    }
-                    facing = "Left";
-                    moving = true;
-                } else {
-                    velX = 0;
-                    moving = false;
-                }
-                if (jumping && velY <= 0) {
-                    jumping = false;
-                    falling = true;
-                } else if (jumping) {
-                    velY = velY - gravityAcc;
-                    y = (int) (y - velY);
-                }
+				if (handler.getKeyManager().right2 && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
+					if (handler.getKeyManager().runbutt2) {
+						velX = 6;
+						running = true;
+					} else {
+						velX = 3;
+						running = false;
+					}
+					if (facing.equals("Left")) {
+						changeDirrection = true;
+					}
+					facing = "Right";
+					moving = true;
+				} else if (handler.getKeyManager().left2 && !handler.getKeyManager().up2 && !handler.getKeyManager().down2) {
+					if (handler.getKeyManager().runbutt2) {
+						velX = -6;
+						running = true;
+					} else {
+						velX = -3;
+						running = false;
+					}
+					if (facing.equals("Right")) {
+						changeDirrection = true;
+					}
+					facing = "Left";
+					moving = true;
+				} else {
+					velX = 0;
+					moving = false;
+				}
+				if (jumping && velY <= 0) {
+					jumping = false;
+					falling = true;
+				} else if (jumping) {
+					velY = velY - gravityAcc;
+					y = (int) (y - velY);
+				}
 
-                if (falling) {
-                    y = (int) (y + velY);
-                    velY = velY + gravityAcc;
-                }
-                x += velX;
-            } else {
-                this.setX(this.getX() - 30);
-                this.setY(this.getY() - 30);
-            }
-        }
+				if (falling) {
+					y = (int) (y + velY);
+					velY = velY + gravityAcc;
+				}
+				x += velX;
+			} else {
+				this.setX(this.getX() - 30);
+				this.setY(this.getY() - 30);
+			}
+		}
 	}
 
 	public void drawLuigi(Graphics2D g2) {
@@ -194,4 +198,28 @@ public class Luigi extends Player{
 	public void setHit(Boolean hit) {
 		this.hit = hit;
 	}
+
+	public void floating() {
+		if(jumping && !falling){
+			floating = true;
+			velY=0;
+			gravityAcc = 0;
+		}
+		handler.getGame().getMusicHandler().playJump();
+		timer.scheduleAtFixedRate(task, 500, 500);
+	}
+
+	Timer timer = new Timer();
+	int counter = 5;
+	TimerTask task = new TimerTask() {
+		@Override
+		public void run() {
+			counter--;
+			if(counter==0) {
+				floating = false;
+				gravityAcc = 0.38;
+				timer.cancel();
+			}
+		}
+	};
 }

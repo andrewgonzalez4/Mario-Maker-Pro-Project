@@ -263,6 +263,7 @@ public void jump() {
 		velY=10;
 		handler.getGame().getMusicHandler().playJump();
 		handler.getMario().doubleJump=false;
+		handler.getLuigi().floating=false;
 	}
 }
 
