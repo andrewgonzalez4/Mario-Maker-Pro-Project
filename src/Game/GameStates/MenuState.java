@@ -1,28 +1,35 @@
 package Game.GameStates;
 
 
-import Display.DisplayMultiScreen;
-import Display.DisplayScreen;
-import Display.UI.UIStringButton;
-import Game.World.MapBuilder;
-import Input.KeyManager;
-import Input.MouseManager;
-import Main.Handler;
-import Resources.Images;
-import Display.UI.UIAnimationButton;
-import Display.UI.UIImageButton;
-import Display.UI.UIManager;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
+
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import Display.DisplayMultiScreen;
+import Display.DisplayScreen;
+import Display.UI.UIAnimationButton;
+import Display.UI.UIImageButton;
+import Display.UI.UIManager;
+import Display.UI.UIStringButton;
+import Game.World.MapBuilder;
+import Input.KeyManager;
+import Input.MouseManager;
+import Main.Handler;
+import Resources.Images;
 
 /**
  * Created by AlexVR on 7/1/2018.
@@ -256,7 +263,7 @@ public class MenuState extends State {
 							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 80, (handler.getHeight() / 2) + (handler.getHeight() / 10), 128, 64, "Challenge Map", () -> {
 								if(!handler.isInMap()) {
 									mode = "Menu";
-									handler.setMap(MapBuilder.createMap(Images.testMaptwo, handler));
+									handler.setMap(MapBuilder.createMap(Images.challengeMap, handler));
 									State.setState(handler.getGame().gameState);
 								}
 							}, handler,Color.BLACK));
