@@ -82,10 +82,14 @@ public class Player extends BaseDynamicEntity {
 			}
 			if(entity != null && getBounds().intersects(entity.getBounds()) && entity instanceof Item && entity instanceof Coin) {
 				
+//				if(player instanceof Mario) {
+//					
+//				}
+				
+				
 				((Item) entity).used = true;
 				entity.y = -100000;
 				marioCoins ++;
-				System.out.println(marioCoins);
 			}
 		}
 
@@ -136,9 +140,10 @@ public class Player extends BaseDynamicEntity {
 				velY=0;
 			}
 
-			if(enemy instanceof Coin) {
+			else if(enemy instanceof Coin) {
 
 			}
+			
 			else if (marioBottomBounds.intersects(enemyTopBounds) && !(enemy instanceof Item) && !(enemy instanceof Mario) && !(enemy instanceof Luigi)) {
 				if(!enemy.ded) {
 					handler.getGame().getMusicHandler().playStomp();
@@ -179,10 +184,10 @@ public class Player extends BaseDynamicEntity {
 				if(enemy instanceof FlowerBlock) {
 					velY=0;
 					mario.setY(enemy.getY() + enemy.height);
-					activatedFlower = true;
+					System.out.println("Check");
 				}
 
-				if(enemy instanceof Coin) {
+				else if(enemy instanceof Coin) {
 
 				}
 				else {
@@ -239,7 +244,7 @@ public class Player extends BaseDynamicEntity {
 
 				}
 
-				if(enemy instanceof Coin) {
+				else if(enemy instanceof Coin) {
 
 				}
 

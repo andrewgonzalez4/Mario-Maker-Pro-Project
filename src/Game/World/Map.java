@@ -81,7 +81,7 @@ public class Map {
 				g2.drawImage(((FlowerBlock)entity).anim.getCurrentFrame(), entity.x, entity.y, entity.width, entity.height, null);
 			}
 			
-			if(entity instanceof Coin) {
+			else if(entity instanceof Coin) {
 				g2.drawImage(((Coin)entity).anim.getCurrentFrame(), entity.x, entity.y, entity.width, entity.height, null);
 
 			}
@@ -139,6 +139,11 @@ public class Map {
 
 			if(entity instanceof FlowerBlock) {
 				g2.drawImage(((FlowerBlock)entity).anim.getCurrentFrame(), entity.x, entity.y, entity.width, entity.height, null);
+			}
+			
+			else if(entity instanceof Coin) {
+				g2.drawImage(((Coin)entity).anim.getCurrentFrame(), entity.x, entity.y, entity.width, entity.height, null);
+
 			}
 			else if(entity instanceof Item){
 				if(!((Item)entity).used){
