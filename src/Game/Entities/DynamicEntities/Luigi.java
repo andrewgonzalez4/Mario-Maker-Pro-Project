@@ -204,9 +204,14 @@ public class Luigi extends Player{
 			floating = true;
 			velY=0;
 			gravityAcc = 0;
+			handler.getGame().getMusicHandler().playJump();
+			update();
 		}
-		handler.getGame().getMusicHandler().playJump();
-		update();
+		
+		else if(jumping == false) {
+			floating = false;
+		}
+	
 
 	}
 
