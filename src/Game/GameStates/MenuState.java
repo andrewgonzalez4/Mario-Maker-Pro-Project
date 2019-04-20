@@ -377,11 +377,16 @@ public class MenuState extends State {
 			display.getCanvas().setCursor(c);
 			colorSelected = MapBuilder.koopaTroopa;
 		}
-		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
-			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.22352f,0.60784f,0.28627f), new Point(0, 0), "cursor1");
-			display.getCanvas().setCursor(c);
-			colorSelected = MapBuilder.luigi;
+		
+		if(handler.isMultiPlayer() == true) {
+			
+			if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
+				Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.22352f,0.60784f,0.28627f), new Point(0, 0), "cursor1");
+				display.getCanvas().setCursor(c);
+				colorSelected = MapBuilder.luigi;
+			}
 		}
+		
 
 		if(mouseManager.isLeftPressed() && !clicked){
 			int posX =mouseManager.getMouseX()/GridPixelsize;
