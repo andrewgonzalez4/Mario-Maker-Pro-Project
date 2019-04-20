@@ -224,6 +224,6 @@ public class Luigi extends Player{
 		};
 		timer.cancel();
 		timer = new Timer();
-		timer.schedule(task,500,500);
+		timer.schedule(task,300,300);
 	}
 }
