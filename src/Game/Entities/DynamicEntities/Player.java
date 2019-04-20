@@ -82,14 +82,24 @@ public class Player extends BaseDynamicEntity {
 			}
 			if(entity != null && getBounds().intersects(entity.getBounds()) && entity instanceof Item && entity instanceof Coin) {
 				
-//				if(player instanceof Mario) {
-//					
-//				}
+				if(this instanceof Mario) {
+					marioCoins ++;
+					((Item) entity).used = true;
+					entity.y = -100000;
+					System.out.println("M" + marioCoins);
+
+				}
+				
+				else if(this instanceof Luigi) {
+					luigiCoins ++;
+					((Item) entity).used = true;
+					entity.y = -100000;
+					System.out.println("L" + luigiCoins);
+
+				}
 				
 				
-				((Item) entity).used = true;
-				entity.y = -100000;
-				marioCoins ++;
+				
 			}
 		}
 
