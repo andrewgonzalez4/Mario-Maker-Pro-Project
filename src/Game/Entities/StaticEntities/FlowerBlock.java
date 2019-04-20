@@ -17,7 +17,6 @@ public class FlowerBlock extends BaseDynamicEntity {
 
 	@Override
 	public void tick(){
-
 		super.tick();
 		anim.tick();
 

@@ -56,6 +56,7 @@ public class Images {
     public static BufferedImage enemySmash;
 
     public static BufferedImage[] goomba;
+    public static BufferedImage[] coin;
     public static BufferedImage[] flowerBlock;
     public static BufferedImage[] KoopaTroopaRight;
     public static BufferedImage[] KoopaTroopaLeft;
@@ -135,6 +136,7 @@ public class Images {
         luigiBigJumpRight = new BufferedImage[5];
         
         goomba = new BufferedImage[2];
+        coin = new BufferedImage[4];
         flowerBlock = new BufferedImage[4];
 
         KoopaTroopaRight = new BufferedImage[4];
@@ -398,6 +400,12 @@ public class Images {
             goomba[0]=goombaSpriteSheet.crop(119,40,162,162);
             goomba[1]= goombaSpriteSheet.crop(329,40,162,162);
             goombaDies=goombaSpriteSheet.crop(539,100,162,81);
+            
+            coin[0] = interactableSpriteSheet.crop(14,14,12,16);
+            coin[1] = interactableSpriteSheet.crop(31,14,8,16);
+            coin[2] = interactableSpriteSheet.crop(42,14,6,16);
+            coin[3] = interactableSpriteSheet.crop(51,14,8,16);
+
 
             KoopaTroopaRight[0] = KTRedSheet.crop(207,39,22,32);
             KoopaTroopaRight[1] = KTRedSheet.crop(247,39,21,31);

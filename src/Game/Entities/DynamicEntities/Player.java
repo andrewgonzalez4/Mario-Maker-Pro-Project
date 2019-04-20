@@ -21,6 +21,7 @@ public class Player extends BaseDynamicEntity {
 	public Animation playerSmallLeftAnimation,playerSmallRightAnimation,playerBigLeftWalkAnimation,playerBigRightWalkAnimation,playerBigLeftRunAnimation,playerBigRightRunAnimation;
 	public boolean falling = true, jumping = false,isBig=false,running = false,changeDirrection=false, activatedFlower = false, marioDies = false;
 	public double gravityAcc = 0.38;
+	public int marioCoins = 0, luigiCoins = 0;
 	int changeDirectionCounter=0;
 
 	public Player(int x, int y, int width, int height, Handler handler, BufferedImage sprite,Animation PSLA,Animation PSRA,Animation PBLWA,Animation PBRWA,Animation PBLRA,Animation PBRRA) {
@@ -48,7 +49,7 @@ public class Player extends BaseDynamicEntity {
 		checkMarioHorizontalCollision();
 		checkTopCollisions();
 		checkItemCollision();
-		
+
 		if(!isBig) {
 			if (facing.equals("Left") && moving) {
 				playerSmallLeftAnimation.tick();
@@ -69,9 +70,9 @@ public class Player extends BaseDynamicEntity {
 	}
 
 	private void checkItemCollision() {
-
+		
 		for (BaseDynamicEntity entity : handler.getMap().getEnemiesOnMap()) {
-			if (entity != null && getBounds().intersects(entity.getBounds()) && entity instanceof Item && !isBig) {
+			if (entity != null && getBounds().intersects(entity.getBounds()) && entity instanceof Item && entity instanceof Coin == false && !isBig) {
 				isBig = true;
 				this.y -= 8;
 				this.height += 8;
@@ -79,8 +80,17 @@ public class Player extends BaseDynamicEntity {
 				((Item) entity).used = true;
 				entity.y = -100000;
 			}
+			if(entity != null && getBounds().intersects(entity.getBounds()) && entity instanceof Item && entity instanceof Coin) {
+				
+				((Item) entity).used = true;
+				entity.y = -100000;
+				marioCoins ++;
+				System.out.println(marioCoins);
+			}
 		}
+
 	}
+
 
 
 	public void checkBottomCollisions() {
@@ -125,6 +135,10 @@ public class Player extends BaseDynamicEntity {
 				falling = false;
 				velY=0;
 			}
+
+			if(enemy instanceof Coin) {
+
+			}
 			else if (marioBottomBounds.intersects(enemyTopBounds) && !(enemy instanceof Item) && !(enemy instanceof Mario) && !(enemy instanceof Luigi)) {
 				if(!enemy.ded) {
 					handler.getGame().getMusicHandler().playStomp();
@@ -166,6 +180,10 @@ public class Player extends BaseDynamicEntity {
 					velY=0;
 					mario.setY(enemy.getY() + enemy.height);
 					activatedFlower = true;
+				}
+
+				if(enemy instanceof Coin) {
+
 				}
 				else {
 					marioDies = true;
@@ -221,6 +239,10 @@ public class Player extends BaseDynamicEntity {
 
 				}
 
+				if(enemy instanceof Coin) {
+
+				}
+
 				else if(enemy instanceof FlowerBlock) {
 					if(toRight)
 						mario.setX(enemy.getX() - mario.getDimension().width);
@@ -235,7 +257,7 @@ public class Player extends BaseDynamicEntity {
 				else if(isBig == true){
 					if (facing.equals("Left") && moving) {
 						playerSmallLeftAnimation.tick();
-						
+
 					} else if (facing.equals("Right") && moving) {
 						playerSmallRightAnimation.tick();
 					}
@@ -248,31 +270,38 @@ public class Player extends BaseDynamicEntity {
 			}
 
 		}
-	
 
-	if(marioDies) {
-		handler.getGame().getMusicHandler().play("marioDies");
-		State.setState(handler.getGame().deathState);
-		handler.getMap().reset();
+
+		if(marioDies) {
+			handler.getGame().getMusicHandler().play("marioDies");
+			State.setState(handler.getGame().deathState);
+			handler.getMap().reset();
+		}
 	}
-}
 
-public void jump() {
-	if(!jumping && !falling){
-		jumping=true;
-		velY=10;
-		handler.getGame().getMusicHandler().playJump();
-		handler.getMario().doubleJump=false;
-		handler.getLuigi().floating=false;
+	public void jump() {
+		if(!jumping && !falling){
+			jumping=true;
+			velY=10;
+			handler.getGame().getMusicHandler().playJump();
+
+			if(handler.isMultiPlayer() == true) {
+				handler.getMario().doubleJump=false;
+				handler.getLuigi().floating=false;
+			}
+
+			else {
+				handler.getMario().doubleJump=false;
+			}
+		}
 	}
-}
 
-public double getVelX() {
-	return velX;
-}
-public double getVelY() {
-	return velY;
-}
+	public double getVelX() {
+		return velX;
+	}
+	public double getVelY() {
+		return velY;
+	}
 
 
 }

@@ -8,6 +8,7 @@ import java.util.Random;
 import Display.UI.UIListener;
 import Display.UI.UIPointer;
 import Game.Entities.DynamicEntities.BaseDynamicEntity;
+import Game.Entities.DynamicEntities.Coin;
 import Game.Entities.DynamicEntities.Goomba;
 import Game.Entities.DynamicEntities.Item;
 import Game.Entities.DynamicEntities.KoopaTroopa;
@@ -79,7 +80,11 @@ public class Map {
 			if(entity instanceof FlowerBlock) {
 				g2.drawImage(((FlowerBlock)entity).anim.getCurrentFrame(), entity.x, entity.y, entity.width, entity.height, null);
 			}
+			
+			if(entity instanceof Coin) {
+				g2.drawImage(((Coin)entity).anim.getCurrentFrame(), entity.x, entity.y, entity.width, entity.height, null);
 
+			}
 			else if(entity instanceof Item){
 				if(!((Item)entity).used){
 					g2.drawImage(entity.sprite, entity.x, entity.y, entity.width, entity.height, null);

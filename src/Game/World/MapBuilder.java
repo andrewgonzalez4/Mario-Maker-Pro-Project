@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 
 import Game.Entities.DynamicEntities.BaseDynamicEntity;
+import Game.Entities.DynamicEntities.Coin;
 import Game.Entities.DynamicEntities.FireFlower;
 import Game.Entities.DynamicEntities.Goomba;
 import Game.Entities.DynamicEntities.KoopaTroopa;
@@ -33,6 +34,7 @@ public class MapBuilder {
 	public static int goomba = new Color(167,15,1).getRGB();
 	public static int koopaTroopa = new Color(221,88,135).getRGB();
 	public static int luigi = new Color(57,155,73).getRGB();
+	public static int coin = new Color(255, 252, 186).getRGB();//pale yellow
 	public static boolean mapDone = false;
 
 	public static Map createMap(BufferedImage mapImage, Handler handler){
@@ -72,6 +74,9 @@ public class MapBuilder {
 				}else if(currentPixel == koopaTroopa){
 					BaseDynamicEntity KoopaTroopa = new KoopaTroopa(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
 					mapInCreation.addEnemy(KoopaTroopa);
+				}else if(currentPixel == coin){
+					BaseDynamicEntity Coin = new Coin(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
+					mapInCreation.addEnemy(Coin);
 				}else if(currentPixel == luigi){
 					BaseDynamicEntity Luigi = new Luigi(xPos,yPos,pixelMultiplier,pixelMultiplier,handler);
 					mapInCreation.addEnemy(Luigi);

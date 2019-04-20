@@ -377,6 +377,12 @@ public class MenuState extends State {
 			display.getCanvas().setCursor(c);
 			colorSelected = MapBuilder.koopaTroopa;
 		}
+		
+		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_C)){
+			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.86666f,0.34509f,0.52941f), new Point(0, 0), "cursor1");
+			display.getCanvas().setCursor(c);
+			colorSelected = MapBuilder.coin;
+		}
 
 		if(handler.isMultiPlayer() == true) {
 
@@ -429,6 +435,7 @@ public class MenuState extends State {
 						"8 -> Fire Flower (Bright Orange)\n" + 
 						"9 -> Fire Flower Block (Mint Green)\n" +
 						"Q -> Koopa Troopa (Pink)\n"+
+						"C -> Coin (Pale Yellow)\n"+
 						"- -> Luigi (Green)\n");
 			}
 
@@ -445,7 +452,8 @@ public class MenuState extends State {
 						"7 -> Goomba (Brown)\n" + 
 						"8 -> Fire Flower (Bright Orange)\n" + 
 						"9 -> Fire Flower Block (Mint Green)\n" +
-						"Q -> Koopa Troopa (Pink)\n");
+						"Q -> Koopa Troopa (Pink)\n" + 
+						"C -> Coin (Pale Yellow)\n");
 			}
 		}
 	}
