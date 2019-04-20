@@ -87,7 +87,7 @@ public class Player extends BaseDynamicEntity {
 					((Item) entity).used = true;
 					entity.y = -100000;
 					System.out.println("M" + marioCoins);
-
+					handler.getGame().getMusicHandler().play("coin");
 				}
 				
 				else if(this instanceof Luigi) {
@@ -95,11 +95,8 @@ public class Player extends BaseDynamicEntity {
 					((Item) entity).used = true;
 					entity.y = -100000;
 					System.out.println("L" + luigiCoins);
-
-				}
-				
-				
-				
+					handler.getGame().getMusicHandler().play("coin");
+				}	
 			}
 		}
 
