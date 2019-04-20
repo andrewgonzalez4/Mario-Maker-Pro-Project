@@ -200,26 +200,30 @@ public class Luigi extends Player{
 	}
 
 	public void floating() {
-		if(jumping && !falling){
+		if(jumping && !falling && floating ==  false){
 			floating = true;
 			velY=0;
 			gravityAcc = 0;
 		}
 		handler.getGame().getMusicHandler().playJump();
-		timer.scheduleAtFixedRate(task, 500, 500);
+		update();
+
 	}
 
 	Timer timer = new Timer();
-	int counter = 5;
-	TimerTask task = new TimerTask() {
-		@Override
-		public void run() {
-			counter--;
-			if(counter==0) {
-				floating = false;
-				gravityAcc = 0.38;
-				timer.cancel();
-			}
-		}
-	};
+	public void update() {
+		TimerTask task = new TimerTask() {
+			int counter = 5;
+			@Override
+			public void run() {
+				counter--;
+				if(counter==0) {
+					floating = false;
+					gravityAcc = 0.38;	
+				}	            }
+		};
+		timer.cancel();
+		timer = new Timer();
+		timer.schedule(task,500,500);
+	}
 }
