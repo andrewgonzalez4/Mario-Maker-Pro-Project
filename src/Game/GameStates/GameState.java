@@ -1,11 +1,14 @@
 package Game.GameStates;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import Display.UI.UIPointer;
 import Game.Entities.DynamicEntities.BaseDynamicEntity;
+import Game.Entities.DynamicEntities.Player;
 import Game.World.MapBuilder;
 import Main.Handler;
 
@@ -31,10 +34,11 @@ public class GameState extends State {
 			handler.getLuigi().tick();
 			if(handler.getKeyManager().skill && !handler.getMario().doubleJump==true){
 				handler.getMario().doubleJump();	
-	       }
+			}
 			if (handler.getKeyManager().skill2 && !handler.getLuigi().floating==true) { 
 				handler.getLuigi().floating();
 			}
+
 		}
 
 		else if(handler.isSinglePlayer() == true) {
@@ -54,6 +58,14 @@ public class GameState extends State {
 	public void render(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g.create();
 		handler.getMap().drawMap(g2);
+		if(handler.isMultiPlayer() == true) {
+			Font font = new Font ("SansSerif", Font.PLAIN, 24);
+			g2.setFont(font);
+			g2.setColor(Color.RED);
+			g2.drawString("Mario's Coins = " + Player.getMarioCoins(), 10, 30);
+			g2.setColor(Color.GREEN);
+			g2.drawString("Luigi's Coins = " + Player.getLuigiCoins(), 530, 30);
+		}
 	}
 
 }

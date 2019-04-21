@@ -1,5 +1,7 @@
 package Main;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferStrategy;
@@ -261,6 +263,12 @@ public class GameSetUp implements Runnable {
         
         if(handler.isMultiPlayer() == true && State.getState() instanceof  GameState) {
         	handler.getMap().drawMap2(g4);
+        	Font font = new Font ("SansSerif", Font.PLAIN, 24);
+    		g3.setFont(font);
+    		g3.setColor(Color.RED);
+    		g3.drawString("Mario's Coins = " + Player.getMarioCoins(), 10, 30);
+    		g3.setColor(Color.GREEN);
+    		g3.drawString("Luigi's Coins = " + Player.getLuigiCoins(), 530, 30);
         }
         
         if(handler.isMultiPlayer() == true && State.getState() instanceof  MenuState) {

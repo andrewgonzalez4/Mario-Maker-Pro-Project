@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import Game.Entities.StaticEntities.BaseStaticEntity;
 import Game.Entities.StaticEntities.BoundBlock;
 import Game.Entities.StaticEntities.FlowerBlock;
+import Game.GameStates.DeathState;
 import Game.GameStates.State;
 import Main.Handler;
 import Resources.Animation;
@@ -21,7 +22,9 @@ public class Player extends BaseDynamicEntity {
 	public Animation playerSmallLeftAnimation,playerSmallRightAnimation,playerBigLeftWalkAnimation,playerBigRightWalkAnimation,playerBigLeftRunAnimation,playerBigRightRunAnimation;
 	public boolean falling = true, jumping = false,isBig=false,running = false,changeDirrection=false, activatedFlower = false, marioDies = false;
 	public double gravityAcc = 0.38;
-	public int marioCoins = 0, luigiCoins = 0;
+	public static int marioCoins = 0;
+	public static int luigiCoins = 0;
+
 	int changeDirectionCounter=0;
 
 	public Player(int x, int y, int width, int height, Handler handler, BufferedImage sprite,Animation PSLA,Animation PSRA,Animation PBLWA,Animation PBRWA,Animation PBLRA,Animation PBRRA) {
@@ -67,10 +70,14 @@ public class Player extends BaseDynamicEntity {
 				playerBigRightRunAnimation.tick();
 			}
 		}
+		if(handler.isMultiPlayer() == true && State.getState() instanceof  DeathState) {
+			 marioCoins = 0;
+			 luigiCoins = 0;
+		}
 	}
 
 	private void checkItemCollision() {
-		
+
 		for (BaseDynamicEntity entity : handler.getMap().getEnemiesOnMap()) {
 			if (entity != null && getBounds().intersects(entity.getBounds()) && entity instanceof Item && entity instanceof Coin == false && !isBig) {
 				isBig = true;
@@ -81,14 +88,14 @@ public class Player extends BaseDynamicEntity {
 				entity.y = -100000;
 			}
 			if(entity != null && getBounds().intersects(entity.getBounds()) && entity instanceof Item && entity instanceof Coin) {
-				
+
 				if(this instanceof Mario) {
 					marioCoins ++;
 					entity.y = -100000;
 					System.out.println("M" + marioCoins);
 					handler.getGame().getMusicHandler().play("coin");
 				}
-				
+
 				else if(this instanceof Luigi) {
 					luigiCoins ++;
 					entity.y = -100000;
@@ -148,7 +155,7 @@ public class Player extends BaseDynamicEntity {
 			else if(enemy instanceof Coin) {
 
 			}
-			
+
 			else if (marioBottomBounds.intersects(enemyTopBounds) && !(enemy instanceof Item) && !(enemy instanceof Mario) && !(enemy instanceof Luigi)) {
 				if(!enemy.ded) {
 					handler.getGame().getMusicHandler().playStomp();
@@ -313,5 +320,20 @@ public class Player extends BaseDynamicEntity {
 		return velY;
 	}
 
+	public static int getMarioCoins() {
+		return marioCoins;
+	}
+
+	public void setMarioCoins(int marioCoins) {
+		this.marioCoins = marioCoins;
+	}
+
+	public static int getLuigiCoins() {
+		return luigiCoins;
+	}
+
+	public void setLuigiCoins(int luigiCoins) {
+		this.luigiCoins = luigiCoins;
+	}
 
 }
