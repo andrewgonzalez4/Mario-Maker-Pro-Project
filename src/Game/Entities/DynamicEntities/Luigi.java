@@ -211,8 +211,6 @@ public class Luigi extends Player{
 		else if(jumping == false) {
 			floating = false;
 		}
-	
-
 	}
 
 	Timer timer = new Timer();
@@ -225,7 +223,8 @@ public class Luigi extends Player{
 				if(counter==0) {
 					floating = false;
 					gravityAcc = 0.38;	
-				}	            }
+				}	           
+			}
 		};
 		timer.cancel();
 		timer = new Timer();
