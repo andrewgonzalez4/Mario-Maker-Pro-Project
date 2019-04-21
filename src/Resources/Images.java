@@ -96,6 +96,12 @@ public class Images {
     private SpriteSheet gameOverSheet;
     public static BufferedImage gameOver;
 
+    private SpriteSheet winnerOrLoserSheet;
+    public static BufferedImage marioWins;
+    public static BufferedImage marioLoses;
+    public static BufferedImage luigiWins;
+    public static BufferedImage luigiLoses;
+
     public Images() {
 
         butstart = new BufferedImage[3];
@@ -152,11 +158,12 @@ public class Images {
             player2SpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/luigiSNESSheet.png")));
             blockSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/blocksSheet.png")));
             goombaSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/goombaSprite.png")));
+            KTRedSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/KTRedSheet.png")));
             SSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/Sheets.png")));
             SAttackSpriteSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/enemySheet2.png")));
             gameOverSheet= new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/gameoverSheet.png")));
-            KTRedSheet = new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/KTRedSheet.png")));
-          
+            winnerOrLoserSheet= new SpriteSheet(ImageIO.read(getClass().getResourceAsStream("/Sheets/winnerOrLoserSheet.png")));
+
             //Images
             title = mainmenuSpriteSheet.crop(16,16,256,224);
             Pause = ImageIO.read(getClass().getResourceAsStream("/Sheets/Pause.png"));
@@ -372,6 +379,10 @@ public class Images {
             enemyBL= SAttackSpriteSheet.crop(188,184,41,55);
             
             gameOver =  gameOverSheet.crop(5,7,256,224);
+            marioWins =  gameOverSheet.crop(5,7,256,224);
+            marioLoses =  gameOverSheet.crop(5,236,256,224);
+            luigiWins =  gameOverSheet.crop(267,7,256,224);
+            luigiLoses =  gameOverSheet.crop(267,236,256,224);
 
             //maps
             testMap = ImageIO.read(getClass().getResourceAsStream("/maps/testmap1.png"));
