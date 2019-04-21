@@ -379,10 +379,10 @@ public class Images {
             enemyBL= SAttackSpriteSheet.crop(188,184,41,55);
             
             gameOver =  gameOverSheet.crop(5,7,256,224);
-            marioWins =  gameOverSheet.crop(5,7,256,224);
-            marioLoses =  gameOverSheet.crop(5,236,256,224);
-            luigiWins =  gameOverSheet.crop(267,7,256,224);
-            luigiLoses =  gameOverSheet.crop(267,236,256,224);
+            marioWins =  winnerOrLoserSheet.crop(5,7,256,224);
+            marioLoses =  winnerOrLoserSheet.crop(5,236,256,224);
+            luigiWins =  winnerOrLoserSheet.crop(267,7,256,224);
+            luigiLoses =  winnerOrLoserSheet.crop(267,236,256,224);
 
             //maps
             testMap = ImageIO.read(getClass().getResourceAsStream("/maps/testmap1.png"));
