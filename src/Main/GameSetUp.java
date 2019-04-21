@@ -261,7 +261,7 @@ public class GameSetUp implements Runnable {
         if(State.getState() != null)
             State.getState().render(g4);
         
-        if(handler.isMultiPlayer() == true && State.getState() instanceof  GameState) {
+        if(handler.isMultiPlayer() == true && State.getState() instanceof GameState) {
         	handler.getMap().drawMap2(g4);
         	Font font = new Font ("SansSerif", Font.PLAIN, 24);
     		g3.setFont(font);

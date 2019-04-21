@@ -70,7 +70,7 @@ public class Player extends BaseDynamicEntity {
 				playerBigRightRunAnimation.tick();
 			}
 		}
-		if(handler.isMultiPlayer() == true && State.getState() instanceof  DeathState) {
+		if(handler.isMultiPlayer() == true && State.getState() instanceof DeathState) {
 			 marioCoins = 0;
 			 luigiCoins = 0;
 		}
@@ -104,7 +104,6 @@ public class Player extends BaseDynamicEntity {
 				}	
 			}
 		}
-
 	}
 
 
