@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 
 import Display.UI.UIPointer;
 import Game.Entities.DynamicEntities.BaseDynamicEntity;
+import Game.Entities.DynamicEntities.Mario;
 import Game.Entities.DynamicEntities.Player;
 import Game.World.MapBuilder;
 import Main.Handler;
@@ -58,7 +59,6 @@ public class GameState extends State {
 
 				State.setState(handler.getGame().deathState);
 			}
-
 		}
 
 

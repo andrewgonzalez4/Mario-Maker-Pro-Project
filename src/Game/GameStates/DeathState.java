@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 import Display.UI.UIManager;
 import Display.UI.UIStringButton;
-import Game.Entities.DynamicEntities.Mario;
+import Game.Entities.DynamicEntities.Luigi;
 import Game.Entities.DynamicEntities.Player;
 import Main.Handler;
 import Resources.Images;
@@ -41,9 +41,15 @@ public class DeathState extends State {
 				uiManager.Render(g);
 
 			}
-			if (Player.luigiCoins>=10){
+			else if (Player.luigiCoins>=10){
 				g.drawImage(Images.luigiWins,0,0,handler.getWidth(),handler.getHeight(),null);
-				uiManager.Render(g);			}
+				uiManager.Render(g);		
+			}
+			
+			else{
+				g.drawImage(Images.gameOver,0,0,handler.getWidth(),handler.getHeight(),null);
+				uiManager.Render(g);	
+			}
 		}
 		else {
 			g.drawImage(Images.gameOver,0,0,handler.getWidth(),handler.getHeight(),null);
