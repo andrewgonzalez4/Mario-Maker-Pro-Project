@@ -11,6 +11,7 @@ import Game.Entities.DynamicEntities.BaseDynamicEntity;
 import Game.Entities.DynamicEntities.Player;
 import Game.World.MapBuilder;
 import Main.Handler;
+import apple.laf.JRSUIUtils.Images;
 
 /**
  * Created by AlexVR on 7/1/2018.
@@ -37,6 +38,14 @@ public class GameState extends State {
 			}
 			if (handler.getKeyManager().skill2 && !handler.getLuigi().floating==true) { 
 				handler.getLuigi().floating();
+			}
+			
+			if(Player.marioCoins >= 10) {
+				State.setState(handler.getGame().deathState);
+			}
+			
+			else if(Player.luigiCoins >= 10) {
+				State.setState(handler.getGame().deathState);
 			}
 
 		}

@@ -36,17 +36,13 @@ public class DeathState extends State {
 	@Override
 	public void render(Graphics g) {
 		if(handler.isMultiPlayer() == true) {
-			if(Player.marioCoins>Player.luigiCoins) {
+			if(Player.marioCoins>=10) {
 				g.drawImage(Images.marioWins,0,0,handler.getWidth(),handler.getHeight(),null);
 				uiManager.Render(g);
 			}
-			if (Player.luigiCoins>Player.marioCoins){
+			if (Player.luigiCoins>=10){
 				g.drawImage(Images.luigiWins,0,0,handler.getWidth(),handler.getHeight(),null);
 				uiManager.Render(g);
-			}
-			if(Player.luigiCoins==Player.marioCoins) {
-				g.drawImage(Images.tie,0,0,handler.getWidth(),handler.getHeight(),null);
-				uiManager.Render(g);	
 			}
 		}
 		else {

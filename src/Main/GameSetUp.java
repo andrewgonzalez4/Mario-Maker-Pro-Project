@@ -289,8 +289,7 @@ public class GameSetUp implements Runnable {
     		g3.drawString("First Player to get 10 coins win!", 0, 270);
 
         }
-        
-        
+     
        
 		if(handler.isMultiPlayer() == true && !(State.getState() instanceof GameState) && !(State.getState() instanceof DeathState)) {
 		 Player.marioCoins = 0;
