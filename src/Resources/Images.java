@@ -101,6 +101,7 @@ public class Images {
     public static BufferedImage marioLoses;
     public static BufferedImage luigiWins;
     public static BufferedImage luigiLoses;
+    public static BufferedImage tie;
 
     public Images() {
 
@@ -383,6 +384,7 @@ public class Images {
             marioLoses =  winnerOrLoserSheet.crop(5,236,256,224);
             luigiWins =  winnerOrLoserSheet.crop(267,7,256,224);
             luigiLoses =  winnerOrLoserSheet.crop(267,236,256,224);
+            tie = winnerOrLoserSheet.crop(529,7,256,224);
 
             //maps
             testMap = ImageIO.read(getClass().getResourceAsStream("/maps/testmap1.png"));

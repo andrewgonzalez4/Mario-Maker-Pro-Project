@@ -45,7 +45,7 @@ public class DeathState extends State {
 				uiManager.Render(g);
 			}
 			if(Player.luigiCoins==Player.marioCoins) {
-				g.drawImage(Images.gameOver,0,0,handler.getWidth(),handler.getHeight(),null);
+				g.drawImage(Images.tie,0,0,handler.getWidth(),handler.getHeight(),null);
 				uiManager.Render(g);	
 			}
 		}
