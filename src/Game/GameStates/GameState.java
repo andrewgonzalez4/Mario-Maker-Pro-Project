@@ -30,7 +30,14 @@ public class GameState extends State {
 			State.setState(handler.getGame().pauseState);
 		}
 
-		if(handler.isMultiPlayer() == true) {
+		if(handler.isSinglePlayer() == true) {
+			handler.getMario().tick();
+			if(handler.getKeyManager().skill && !handler.getMario().doubleJump==true){
+				handler.getMario().doubleJump();	
+			}
+		}
+
+		else if(handler.isMultiPlayer() == true) {
 			handler.getMario().tick();
 			handler.getLuigi().tick();
 			if(handler.getKeyManager().skill && !handler.getMario().doubleJump==true){
@@ -39,13 +46,13 @@ public class GameState extends State {
 			if (handler.getKeyManager().skill2 && !handler.getLuigi().floating==true) { 
 				handler.getLuigi().floating();
 			}
-			
+
 			if(Player.marioCoins >= 10) {
 				handler.getGame().getMusicHandler().play("marioDies");
 
 				State.setState(handler.getGame().deathState);
 			}
-			
+
 			else if(Player.luigiCoins >= 10) {
 				handler.getGame().getMusicHandler().play("marioDies");
 
@@ -54,9 +61,8 @@ public class GameState extends State {
 
 		}
 
-		else if(handler.isSinglePlayer() == true) {
-			handler.getMario().tick();
-		}
+
+
 		if(handler.getMap().getListener() != null && MapBuilder.mapDone) {
 			handler.getMap().getListener().tick();
 			handler.getMap().getHand().tick();
@@ -78,6 +84,13 @@ public class GameState extends State {
 			g2.drawString("Mario's Coins = " + Player.marioCoins, 10, 30);
 			g2.setColor(Color.GREEN);
 			g2.drawString("Luigi's Coins = " + Player.luigiCoins, handler.getWidth()-210, 30);
+		}
+		
+		else if(handler.isSinglePlayer() == true) {
+			Font font = new Font ("SansSerif", Font.PLAIN, 24);
+			g2.setFont(font);
+			g2.setColor(Color.RED);
+			g2.drawString("Mario's Coins = " + Player.marioCoins, 10, 30);
 		}
 	}
 
