@@ -268,7 +268,7 @@ public class GameSetUp implements Runnable {
     		g3.setColor(Color.RED);
     		g3.drawString("Mario's Coins = " + Player.marioCoins, 10, 30);
     		g3.setColor(Color.GREEN);
-    		g3.drawString("Luigi's Coins = " + Player.luigiCoins, 530, 30);
+    		g3.drawString("Luigi's Coins = " + Player.luigiCoins, handler.getWidth()-190, 30);
         }
         
         if(handler.isMultiPlayer() == true && State.getState() instanceof  MenuState) {
