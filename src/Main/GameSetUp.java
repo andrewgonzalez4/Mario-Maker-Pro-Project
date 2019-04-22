@@ -266,15 +266,18 @@ public class GameSetUp implements Runnable {
         	Font font = new Font ("SansSerif", Font.PLAIN, 24);
     		g3.setFont(font);
     		g3.setColor(Color.RED);
-    		g3.drawString("Mario's Coins = " + Player.getMarioCoins(), 10, 30);
+    		g3.drawString("Mario's Coins = " + Player.marioCoins, 10, 30);
     		g3.setColor(Color.GREEN);
-    		g3.drawString("Luigi's Coins = " + Player.getLuigiCoins(), 530, 30);
+    		g3.drawString("Luigi's Coins = " + Player.luigiCoins, 530, 30);
         }
         
         if(handler.isMultiPlayer() == true && State.getState() instanceof  MenuState) {
         	g3.clearRect(0, 0, handler.width, handler.height);
         }
-
+		if(handler.isMultiPlayer() == true && !(State.getState() instanceof GameState) && !(State.getState() instanceof DeathState)) {
+		 Player.marioCoins = 0;
+		 Player.luigiCoins = 0;
+	    }
         //End Drawing!
         bs2.show();
         g3.dispose();

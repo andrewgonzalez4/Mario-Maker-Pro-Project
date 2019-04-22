@@ -9,6 +9,7 @@ import Game.Entities.StaticEntities.BaseStaticEntity;
 import Game.Entities.StaticEntities.BoundBlock;
 import Game.Entities.StaticEntities.FlowerBlock;
 import Game.GameStates.DeathState;
+import Game.GameStates.GameState;
 import Game.GameStates.State;
 import Main.Handler;
 import Resources.Animation;
@@ -70,10 +71,6 @@ public class Player extends BaseDynamicEntity {
 				playerBigRightRunAnimation.tick();
 			}
 		}
-		if(handler.isMultiPlayer() == true && State.getState() instanceof DeathState) {
-			 marioCoins = 0;
-			 luigiCoins = 0;
-		}
 	}
 
 	private void checkItemCollision() {
@@ -104,6 +101,7 @@ public class Player extends BaseDynamicEntity {
 				}	
 			}
 		}
+
 	}
 
 
@@ -318,21 +316,4 @@ public class Player extends BaseDynamicEntity {
 	public double getVelY() {
 		return velY;
 	}
-
-	public static int getMarioCoins() {
-		return marioCoins;
-	}
-
-	public void setMarioCoins(int marioCoins) {
-		this.marioCoins = marioCoins;
-	}
-
-	public static int getLuigiCoins() {
-		return luigiCoins;
-	}
-
-	public void setLuigiCoins(int luigiCoins) {
-		this.luigiCoins = luigiCoins;
-	}
-
 }

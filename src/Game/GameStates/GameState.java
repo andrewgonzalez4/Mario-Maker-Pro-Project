@@ -62,9 +62,9 @@ public class GameState extends State {
 			Font font = new Font ("SansSerif", Font.PLAIN, 24);
 			g2.setFont(font);
 			g2.setColor(Color.RED);
-			g2.drawString("Mario's Coins = " + Player.getMarioCoins(), 10, 30);
+			g2.drawString("Mario's Coins = " + Player.marioCoins, 10, 30);
 			g2.setColor(Color.GREEN);
-			g2.drawString("Luigi's Coins = " + Player.getLuigiCoins(), 530, 30);
+			g2.drawString("Luigi's Coins = " + Player.luigiCoins, 530, 30);
 		}
 	}
 
