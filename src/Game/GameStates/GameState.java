@@ -64,7 +64,7 @@ public class GameState extends State {
 			g2.setColor(Color.RED);
 			g2.drawString("Mario's Coins = " + Player.marioCoins, 10, 30);
 			g2.setColor(Color.GREEN);
-			g2.drawString("Luigi's Coins = " + Player.luigiCoins, handler.getWidth()-190, 30);
+			g2.drawString("Luigi's Coins = " + Player.luigiCoins, handler.getWidth()-210, 30);
 		}
 	}
 
