@@ -271,9 +271,27 @@ public class GameSetUp implements Runnable {
     		g3.drawString("Luigi's Coins = " + Player.luigiCoins, handler.getWidth()-210, 30);
         }
         
-        if(handler.isMultiPlayer() == true && State.getState() instanceof  MenuState) {
+        else if(handler.isMultiPlayer() == true && State.getState() instanceof MenuState) {
         	g3.clearRect(0, 0, handler.width, handler.height);
+        	Font font = new Font ("SansSerif", Font.PLAIN, 20);
+    		g3.setFont(font);
+    		g3.setColor(Color.WHITE);
+    		g3.drawString("Welcome to this multiplayer!",0, 30);
+    		g3.setColor(Color.RED);
+    		g3.drawString("In order to play, Mario will be controlled using WASD", 0, 60);
+    		g3.drawString("shift for running and space for jumping", 0, 90);
+    		
+    		g3.setColor(Color.GREEN);
+    		g3.drawString("Luigi will be controlled using the arrow keys,", 0, 180);
+    		g3.drawString("front slash(/) for running and option for jumping", 0, 210);
+    		
+    		g3.setColor(Color.WHITE);
+    		g3.drawString("First Player to get 10 coins win!", 0, 270);
+
         }
+        
+        
+       
 		if(handler.isMultiPlayer() == true && !(State.getState() instanceof GameState) && !(State.getState() instanceof DeathState)) {
 		 Player.marioCoins = 0;
 		 Player.luigiCoins = 0;

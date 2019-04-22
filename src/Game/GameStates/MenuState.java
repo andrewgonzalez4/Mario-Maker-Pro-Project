@@ -199,6 +199,8 @@ public class MenuState extends State {
 							handler.getGame().display2.getFrame().setVisible(true);
 							handler.getGame().display.getFrame().setLocation(50 + 80, 125);
 
+							
+
 							//New Map
 							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 250, (handler.getHeight() / 2) + (handler.getHeight() / 10) - (85), 128, 64, "New Map", () -> {
 								if(!handler.isInMap()) {
