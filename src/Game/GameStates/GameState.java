@@ -41,10 +41,14 @@ public class GameState extends State {
 			}
 			
 			if(Player.marioCoins >= 10) {
+				handler.getGame().getMusicHandler().play("marioDies");
+
 				State.setState(handler.getGame().deathState);
 			}
 			
 			else if(Player.luigiCoins >= 10) {
+				handler.getGame().getMusicHandler().play("marioDies");
+
 				State.setState(handler.getGame().deathState);
 			}
 

@@ -39,11 +39,11 @@ public class DeathState extends State {
 			if(Player.marioCoins>=10) {
 				g.drawImage(Images.marioWins,0,0,handler.getWidth(),handler.getHeight(),null);
 				uiManager.Render(g);
+
 			}
 			if (Player.luigiCoins>=10){
 				g.drawImage(Images.luigiWins,0,0,handler.getWidth(),handler.getHeight(),null);
-				uiManager.Render(g);
-			}
+				uiManager.Render(g);			}
 		}
 		else {
 			g.drawImage(Images.gameOver,0,0,handler.getWidth(),handler.getHeight(),null);
