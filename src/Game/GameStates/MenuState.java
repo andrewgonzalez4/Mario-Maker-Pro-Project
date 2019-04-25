@@ -352,7 +352,12 @@ public class MenuState extends State {
 			display.getCanvas().setCursor(c);
 			colorSelected = MapBuilder.flowerBlock;
 		}
-		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_Q)){
+		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
+			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.84313f,0.858827f,0.81568f), new Point(0, 0), "cursor1");
+			display.getCanvas().setCursor(c);
+			colorSelected = MapBuilder.cloudBlock;
+		}
+		if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_K)){
 			Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.86666f,0.34509f,0.52941f), new Point(0, 0), "cursor1");
 			display.getCanvas().setCursor(c);
 			colorSelected = MapBuilder.koopaTroopa;
@@ -366,7 +371,7 @@ public class MenuState extends State {
 
 		if(handler.isMultiPlayer() == true) {
 
-			if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_MINUS)){
+			if(handler.getKeyManager().keyJustPressed(KeyEvent.VK_L)){
 				Cursor c = Toolkit.getDefaultToolkit().createCustomCursor(Images.tint(Images.Cursor,0.22352f,0.60784f,0.28627f), new Point(0, 0), "cursor1");
 				display.getCanvas().setCursor(c);
 				colorSelected = MapBuilder.luigi;
@@ -412,11 +417,12 @@ public class MenuState extends State {
 						"5 -> Bounds Block (Black)\n" +
 						"6 -> Mushroom (Purple)\n" +
 						"7 -> Goomba (Brown)\n" + 
-						"8 -> Fire Flower (Bright Orange)\n" + 
+						"8 -> Fire Flower (Darker Orange)\n" + 
 						"9 -> Fire Flower Block (Mint Green)\n" +
-						"Q -> Koopa Troopa (Pink)\n"+
+						"- -> Cloud Block (Light Grey)\n" +
+						"K -> Koopa Troopa (Pink)\n"+
 						"C -> Coin (Pale Yellow)\n"+
-						"- -> Luigi (Green)\n");
+						"L -> Luigi (Green)\n");
 			}
 
 			else {
@@ -430,9 +436,10 @@ public class MenuState extends State {
 						"5 -> Bounds Block (Black)\n" +
 						"6 -> Mushroom (Purple)\n" +
 						"7 -> Goomba (Brown)\n" + 
-						"8 -> Fire Flower (Bright Orange)\n" + 
+						"8 -> Fire Flower (Darker Orange)\n" + 
 						"9 -> Fire Flower Block (Mint Green)\n" +
-						"Q -> Koopa Troopa (Pink)\n" + 
+						"- -> Cloud Block (Light Grey)\n" +
+						"K -> Koopa Troopa (Pink)\n" + 
 						"C -> Coin (Pale Yellow)\n");
 			}
 		}

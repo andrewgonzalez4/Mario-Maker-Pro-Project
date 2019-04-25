@@ -13,7 +13,7 @@ import Game.Entities.DynamicEntities.Luigi;
 import Game.Entities.DynamicEntities.Mario;
 import Game.Entities.DynamicEntities.Player;
 import Game.Entities.StaticEntities.BreakBlock;
-import Game.GameStates.DeathState;
+import Game.GameStates.GameOverState;
 import Game.GameStates.GameState;
 import Game.GameStates.MenuState;
 import Game.GameStates.PauseState;
@@ -91,7 +91,7 @@ public class GameSetUp implements Runnable {
         gameState = new GameState(handler);
         menuState = new MenuState(handler);
         pauseState = new PauseState(handler);
-        deathState = new DeathState(handler);
+        deathState = new GameOverState(handler);
 
 
         State.setState(menuState);
@@ -291,7 +291,7 @@ public class GameSetUp implements Runnable {
         }
      
        
-		if(handler.isMultiPlayer() == true && !(State.getState() instanceof GameState) && !(State.getState() instanceof DeathState)) {
+		if(handler.isMultiPlayer() == true && !(State.getState() instanceof GameState) && !(State.getState() instanceof GameOverState)) {
 		 Player.marioCoins = 0;
 		 Player.luigiCoins = 0;
 	    }

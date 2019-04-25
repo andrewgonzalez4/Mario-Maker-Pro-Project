@@ -58,6 +58,7 @@ public class Images {
     public static BufferedImage[] goomba;
     public static BufferedImage[] coin;
     public static BufferedImage[] flowerBlock;
+    
     public static BufferedImage[] KoopaTroopaRight;
     public static BufferedImage[] KoopaTroopaLeft;
     public static BufferedImage KoopaTroopaLeftDies;
@@ -76,6 +77,7 @@ public class Images {
     public static BufferedImage breakBlock;
     public static BufferedImage misteryBlock;
     public static BufferedImage surfaceBlock;
+    public static BufferedImage cloudBlock;
     public static BufferedImage boundBlock;
     public static BufferedImage mushroom;
     public static BufferedImage fireflower;
@@ -395,6 +397,7 @@ public class Images {
             //blocks
             boundBlock = interactableSpriteSheet.crop(12,73,16,16);
             misteryBlock = interactableSpriteSheet.crop(32,93,16,16);
+            cloudBlock = interactableSpriteSheet.crop(112,132,16,16);
            
             flowerBlock[0] = interactableSpriteSheet.crop(13, 172, 16, 16);
             flowerBlock[1] = interactableSpriteSheet.crop(33, 172, 16, 16);
@@ -418,7 +421,6 @@ public class Images {
             coin[1] = interactableSpriteSheet.crop(31,14,8,16);
             coin[2] = interactableSpriteSheet.crop(42,14,6,16);
             coin[3] = interactableSpriteSheet.crop(51,14,8,16);
-
 
             KoopaTroopaRight[0] = KTRedSheet.crop(207,39,22,32);
             KoopaTroopaRight[1] = KTRedSheet.crop(247,39,21,31);

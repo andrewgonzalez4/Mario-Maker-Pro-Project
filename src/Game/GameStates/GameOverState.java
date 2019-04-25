@@ -10,16 +10,16 @@ import Game.Entities.DynamicEntities.Player;
 import Main.Handler;
 import Resources.Images;
 
-public class DeathState extends State {
+public class GameOverState extends State {
 
 	private UIManager uiManager;
 
-	public DeathState(Handler handler) {
+	public GameOverState(Handler handler) {
 		super(handler);
 		uiManager = new UIManager(handler);
 		handler.getMouseManager().setUimanager(uiManager);
 
-		uiManager.addObjects(new UIStringButton(340, (300+(64+16))+(64+16), 128, 64, "Title", () -> {
+		uiManager.addObjects(new UIStringButton(handler.getWidth()/3 + 90, handler.getHeight()/2 + 90, 128, 64, "Title", () -> {
 			handler.getMouseManager().setUimanager(null);
 			handler.setIsInMap(false);
 			State.setState(handler.getGame().menuState);

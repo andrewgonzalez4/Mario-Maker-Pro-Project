@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import Game.Entities.StaticEntities.BaseStaticEntity;
 import Game.Entities.StaticEntities.BoundBlock;
 import Game.Entities.StaticEntities.FlowerBlock;
-import Game.GameStates.DeathState;
+import Game.GameStates.GameOverState;
 import Game.GameStates.GameState;
 import Game.GameStates.State;
 import Main.Handler;

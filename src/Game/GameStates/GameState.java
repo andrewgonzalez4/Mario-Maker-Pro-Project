@@ -1,6 +1,7 @@
 package Game.GameStates;
 
 import java.awt.Color;
+
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -8,11 +9,9 @@ import java.awt.event.KeyEvent;
 
 import Display.UI.UIPointer;
 import Game.Entities.DynamicEntities.BaseDynamicEntity;
-import Game.Entities.DynamicEntities.Mario;
 import Game.Entities.DynamicEntities.Player;
 import Game.World.MapBuilder;
 import Main.Handler;
-import apple.laf.JRSUIUtils.Images;
 
 /**
  * Created by AlexVR on 7/1/2018.
