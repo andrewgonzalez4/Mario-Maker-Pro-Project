@@ -168,6 +168,15 @@ public class MenuState extends State {
 									State.setState(handler.getGame().gameState);
 								}
 							}, handler,Color.BLACK));
+							
+							//SkyFall Map
+							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 70, (handler.getHeight() / 2) + (handler.getHeight() / 5) - (70), 128, 64, "SkyFallMap", () -> {
+								if(!handler.isInMap()) {
+									mode = "Menu";
+									handler.setMap(MapBuilder.createMap(Images.SkyFall, handler));
+									State.setState(handler.getGame().gameState);
+								}
+							}, handler,Color.BLACK));
 
 						}
 
@@ -246,6 +255,15 @@ public class MenuState extends State {
 								if(!handler.isInMap()) {
 									mode = "Menu";
 									handler.setMap(MapBuilder.createMap(Images.challengeMap, handler));
+									State.setState(handler.getGame().gameState);
+								}
+							}, handler,Color.BLACK));
+							
+							//SkyFall Map
+							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 70, (handler.getHeight() / 2) + (handler.getHeight() / 5) - (70), 128, 64, "SkyFallMap", () -> {
+								if(!handler.isInMap()) {
+									mode = "Menu";
+									handler.setMap(MapBuilder.createMap(Images.SkyFall, handler));
 									State.setState(handler.getGame().gameState);
 								}
 							}, handler,Color.BLACK));
