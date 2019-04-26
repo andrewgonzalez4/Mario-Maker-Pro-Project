@@ -209,7 +209,7 @@ public class MenuState extends State {
 							}, handler,Color.BLACK));
 
 							//other
-							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 70, (handler.getHeight() / 2) + (handler.getHeight() / 3) - (80), 128, 64, "Other", () -> {
+							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 40, (handler.getHeight() / 2) + (handler.getHeight() / 3) - (110), 128, 64, "Other", () -> {
 								if(!handler.isInMap()){
 									mode = "Menu";
 									JFileChooser chooser = new JFileChooser("/maps");
@@ -232,7 +232,7 @@ public class MenuState extends State {
 
 
 							//Hello World Map
-							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 70, (handler.getHeight() / 2) + (handler.getHeight() / 5) - (80), 128, 64, "<Hello World>", () -> {
+							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 70, (handler.getHeight() / 2) + (handler.getHeight() / 5) - (110), 128, 64, "<Hello World>", () -> {
 								if(!handler.isInMap()) {
 									mode = "Menu";
 									handler.setMap(MapBuilder.createMap(Images.challengeMap, handler));
@@ -241,7 +241,7 @@ public class MenuState extends State {
 							}, handler,Color.BLACK));
 							
 							//SkyFall Map
-							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 70, (handler.getHeight() / 2) + (handler.getHeight() / 3) - (120), 128, 64, "SkyFallMap", () -> {
+							uiManager.addObjects(new UIStringButton(handler.getWidth() / 2 - 70, (handler.getHeight() / 2) + (handler.getHeight() / 3) - (150), 128, 64, "SkyFallMap", () -> {
 								if(!handler.isInMap()) {
 									mode = "Menu";
 									handler.setMap(MapBuilder.createMap(Images.SkyFall, handler));
